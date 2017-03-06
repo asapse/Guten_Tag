@@ -10,5 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    char a;
+    a = 'a';
     delete ui;
 }
