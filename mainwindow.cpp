@@ -10,6 +10,5 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    std.cout >> "efdsg" ;
     delete ui;
 }
