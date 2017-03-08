@@ -1,14 +1,13 @@
 #ifndef EXPLORERLAYOUT_HPP
 #define EXPLORERLAYOUT_HPP
 
-#include <QVBoxLayout>
 #include <QFileSystemModel>
 #include <QTableView>
 
-class explorerlayout : public QVBoxLayout
+class explorerlayout : public QWidget
 {
     public:
-        explorerlayout(QWidget *parent);
+        explorerlayout();
     private:
         QFileSystemModel *_qfilemodel;
         QTableView *_qtableview;

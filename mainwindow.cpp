@@ -2,8 +2,11 @@
 #include "taglayout.hpp"
 #include "explorerlayout.hpp"
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent)
+#include <QLabel>
+#include <QProgressBar>
+#include <QPushButton>
+
+MainWindow::MainWindow()
 {
     //initialisation de la liste de tags
     xmldom *xd = new xmldom();
@@ -11,15 +14,17 @@ MainWindow::MainWindow(QWidget *parent) :
     xd->xmlReader();
     _taglist = xd->getTagList();
 
-    QHBoxLayout *layout = new QHBoxLayout;
-    taglayout *taglay = new taglayout();
-    explorerlayout *explolay = new explorerlayout(this);
 
-    layout->addLayout(taglay);
-    layout->addLayout(explolay);
+    taglayout *tagcontent = new taglayout();
+    explorerlayout *explorercontent = new explorerlayout();
+
+    QHBoxLayout *hlayout = new QHBoxLayout;
+
+    hlayout->addWidget(tagcontent);
+    hlayout->addWidget(explorercontent);
+    this->setLayout(hlayout);
+
     this->setFixedSize(1400, 900);
-    this->setWindowTitle("Guten Tag");
-    //this->setWindowIcon(QIcon("icone.png"));
 
 }
 

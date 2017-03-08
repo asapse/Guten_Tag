@@ -4,14 +4,18 @@
 #include <QMainWindow>
 #include <QHBoxLayout>
 #include <xmldom.hpp>
+#include <taglayout.hpp>
+#include <explorerlayout.hpp>
 
-class MainWindow : public QMainWindow
+class MainWindow : public QWidget
 {
     Q_OBJECT
 private:
     QVector<tag*> _taglist;
+    taglayout *_taglay;
+    explorerlayout *_explolay;
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    MainWindow();
     ~MainWindow();
 };
 

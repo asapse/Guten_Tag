@@ -1,14 +1,14 @@
 #ifndef TAGLAYOUT_HPP
 #define TAGLAYOUT_HPP
 
-#include <QVBoxLayout>
+#include <QLineEdit>
 
-class taglayout : public QVBoxLayout
+class taglayout : public QWidget
 {
 public:
     taglayout();
 private:
-
+    QLineEdit *_recherche;
 public slots:
 };
 
