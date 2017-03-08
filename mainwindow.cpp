@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent) :
     taglayout *taglay = new taglayout();
     explorerlayout *explolay = new explorerlayout(this);
 
+    layout->addLayout(taglay);
+    layout->addLayout(explolay);
     this->setFixedSize(1400, 900);
     this->setWindowTitle("Guten Tag");
     //this->setWindowIcon(QIcon("icone.png"));
