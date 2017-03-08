@@ -1,6 +1,7 @@
 #include "explorerlayout.hpp"
 
-explorerlayout::explorerlayout(): QVBoxLayout()
+explorerlayout::explorerlayout(QWidget *parent): QVBoxLayout(parent)
 {
-
+    _qfilemodel = new QFileSystemModel();
+    _qtableview = new QTableView(parent);
 }

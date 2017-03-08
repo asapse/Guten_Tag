@@ -13,10 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QHBoxLayout *layout = new QHBoxLayout;
     taglayout *taglay = new taglayout();
-    explorerlayout *explolay = new explorerlayout();
-
-    layout->addLayout(taglay);
-    layout->addLayout(explolay);
+    explorerlayout *explolay = new explorerlayout(this);
 
     this->setFixedSize(1400, 900);
     this->setWindowTitle("Guten Tag");

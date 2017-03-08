@@ -2,13 +2,16 @@
 #define EXPLORERLAYOUT_HPP
 
 #include <QVBoxLayout>
+#include <QFileSystemModel>
+#include <QTableView>
 
 class explorerlayout : public QVBoxLayout
 {
     public:
-        explorerlayout();
+        explorerlayout(QWidget *parent);
     private:
-
+        QFileSystemModel *_qfilemodel;
+        QTableView *_qtableview;
     public slots:
 };
 
