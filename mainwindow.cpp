@@ -15,7 +15,7 @@ MainWindow::MainWindow()
     _taglist = xd->getTagList();
 
 
-    taglayout *tagcontent = new taglayout();
+    taglayout *tagcontent = new taglayout(&_taglist);
     explorerlayout *explorercontent = new explorerlayout();
 
     QHBoxLayout *hlayout = new QHBoxLayout;
