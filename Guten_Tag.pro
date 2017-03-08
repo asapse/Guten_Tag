@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -24,8 +24,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    tag.cpp \
+    xmldom.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    tag.hpp \
+    xmldom.hpp
 
 FORMS    += mainwindow.ui
