@@ -26,11 +26,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     tag.cpp \
-    xmldom.cpp
+    xmldom.cpp \
+    explorerlayout.cpp \
+    taglayout.cpp
 
 HEADERS  += mainwindow.h \
     tag.hpp \
-    xmldom.hpp
+    xmldom.hpp \
+    explorerlayout.hpp \
+    taglayout.hpp
 
 DISTFILES += \
     default.xml

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QHBoxLayout>
 #include <xmldom.hpp>
 
 class MainWindow : public QMainWindow
