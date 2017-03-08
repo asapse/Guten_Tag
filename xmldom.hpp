@@ -4,20 +4,28 @@
 #include <QtXml/qxml.h>
 #include <QDomDocument>
 #include <QString>
+#include <QWidget>
+#include <QString>
+#include <tag.hpp>
+#include <QDir>
+#include <QMessageBox>
+#include <iostream>
 
-class xmldom
+class xmldom : public QWidget
 {
 
     private:
         QDomDocument *_dom;
         QString _filepath;
+        QVector<tag*> _taglist;
     public:
         xmldom();
         xmldom(QString filepath);
         ~xmldom();
-
-        void xmlreader();
-        void xmlsaver();
+        void xmlOpen();
+        void xmlReader();
+        void xmlSaver();
+        QVector<tag*> getTagList();
 
 };
 
