@@ -31,5 +31,3 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     tag.hpp \
     xmldom.hpp
-
-FORMS    += mainwindow.ui
