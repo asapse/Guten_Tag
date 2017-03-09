@@ -10,6 +10,7 @@
 #include <QString>
 #include <QDir>
 #include <QMessageBox>
+#include <iostream>
 
 class explorerlayout : public QWidget
 {
