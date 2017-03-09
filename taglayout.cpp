@@ -1,14 +1,11 @@
 #include "taglayout.hpp"
-using namespace std;
-#include <QLabel>
-#include <QPushButton>
-#include <QVBoxLayout>
 
 taglayout::taglayout(QVector<tag*> *taglist) : QWidget()
 {
-    this->setStyleSheet("background-color:grey;");
+    _taglist = taglist;
     this->setGeometry(10, 10, 100,500);
     QVBoxLayout *vlayout = new QVBoxLayout;
+    _vlayout = vlayout;
 
     //add here new widgets, then add them to the layout
     QLineEdit *recherche = new QLineEdit();
@@ -17,16 +14,7 @@ taglayout::taglayout(QVector<tag*> *taglist) : QWidget()
 
     vlayout->addWidget(recherche);
 
-    vlayout->addWidget(new QLabel("TAGS"));
-
-    for(int i=0; i<taglist->size(); i++)
-    {
-        QPushButton *b = new QPushButton(taglist->value(i)->getName());
-        QColor col = taglist->value(i)->getColor();
-        b->setStyleSheet(QString("background-color: %1").arg(col.name()));
-
-        vlayout->addWidget(b);
-    }
+    print_Tags();
 
     QHBoxLayout *hlay = new QHBoxLayout;
 
@@ -39,4 +27,17 @@ taglayout::taglayout(QVector<tag*> *taglist) : QWidget()
     hlay->addWidget(del);
 
     this->setLayout(vlayout);
+}
+
+
+void taglayout::print_Tags()
+{
+    for(int i=0; i<_taglist->size(); i++)
+    {
+        QPushButton *b = new QPushButton(_taglist->value(i)->getName());
+        QColor col = _taglist->value(i)->getColor();
+        b->setStyleSheet(QString("background-color: %1").arg(col.name()));
+
+        _vlayout->addWidget(b);
+    }
 }
