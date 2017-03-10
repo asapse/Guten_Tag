@@ -40,6 +40,7 @@ void taglayout::print_Tags()
         QPushButton *b = new QPushButton(_taglist.value(i)->getName());
         QColor col = _taglist.value(i)->getColor();
         b->setStyleSheet(QString("background-color: %1").arg(col.name()));
+        b->setCursor(Qt::PointingHandCursor);
 
         _vlayout->addWidget(b);
     }
