@@ -24,6 +24,7 @@ MainWindow::MainWindow()
 
     this->setFixedSize(1400, 900);
 
+    //connect(this, SIGNAL(aboutToQuit()), xd, SLOT(xmlSaver()));
 }
 
 MainWindow::~MainWindow()

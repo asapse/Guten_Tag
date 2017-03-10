@@ -14,6 +14,7 @@ class tag
         QVector<QString> _files;
     public:
         tag();
+        tag(QString name, QColor color);
         tag(QString name, QColor color, QVector<QString> files);
         QColor getColor();
         void setColor(QColor color);

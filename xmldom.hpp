@@ -25,10 +25,10 @@ class xmldom : public QWidget
         ~xmldom();
         void xmlOpen();
         void xmlReader();
-        void xmlSaver();
         void addTag(QString s, QColor *c);
         QVector<tag*> getTagList();
-
+    public slots:
+        void xmlSaver();
 };
 
 #endif // XMLDOM_HPP

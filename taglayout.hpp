@@ -25,6 +25,7 @@ class taglayout : public QWidget
         QHBoxLayout *_hlay;
         addtagdialog *_dial;
     public slots:
+        void slot_print_Tags();
 };
 
 #endif // TAGLAYOUT_HPP

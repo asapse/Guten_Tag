@@ -65,6 +65,7 @@ void xmldom::xmlSaver()
     file.close();
 }
 
+//à faire quand on qui l'appli, puis xmlSaver()
 void xmldom::addTag(QString s, QColor *c)
 {
     QDomElement root = _dom->documentElement();

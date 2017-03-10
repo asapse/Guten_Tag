@@ -5,6 +5,12 @@ tag::tag()
 
 }
 
+tag::tag(QString name, QColor color)
+{
+    _name = name;
+    _color = color;
+}
+
 tag::tag(QString name, QColor color, QVector<QString> files)
 {
     _name = name;

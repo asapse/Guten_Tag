@@ -18,11 +18,11 @@ class addtagdialog : public QDialog
 {
     Q_OBJECT
     public:
-        addtagdialog(xmldom *xd);
-        void loadXML();
+        addtagdialog(QVector<tag*> taglist);
+        void add_tag_to_list();
+        QVector<tag*> getTagList();
     private:
         QVector<tag*> _taglist;
-        xmldom *_xd;
         QVBoxLayout *_vlayout;
         QHBoxLayout *_hlaytop;
         QHBoxLayout *_hlaybot;
@@ -33,7 +33,7 @@ class addtagdialog : public QDialog
     signals:
         void tag_added();
     public slots:
-        int accept_add_tag();
+        void accept_add_tag();
 };
 
 #endif // ADDTAGDIALOG_HPP

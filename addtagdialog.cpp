@@ -1,9 +1,8 @@
 #include "addtagdialog.hpp"
 
-addtagdialog::addtagdialog(xmldom *xd) : QDialog()
+addtagdialog::addtagdialog(QVector<tag*> taglist) : QDialog()
 {
-    _xd = xd;
-    _taglist = _xd->getTagList();
+    _taglist = taglist;
     _vlayout =  new QVBoxLayout;
     _hlaytop = new QHBoxLayout;
     _hlaybot = new QHBoxLayout;
@@ -28,33 +27,38 @@ addtagdialog::addtagdialog(xmldom *xd) : QDialog()
     connect(_lineditag, SIGNAL(returnPressed()), this, SLOT(accept_add_tag()));
 }
 
-void addtagdialog::loadXML()
-{
-    _taglist = _xd->getTagList();
-}
-
-int addtagdialog::accept_add_tag()
+void addtagdialog::accept_add_tag()
 {
     if(_lineditag->text() == ""){
         QMessageBox::warning(this,"Erreur","Champ vide.");
-        return 2;
+        return;
     }
 
     for(int i=0; i<_taglist.size(); i++)
     {
-        qDebug() << _taglist.value(i)->getName();
         if(_lineditag->text() == _taglist.value(i)->getName()){
             //afficher l'erreur
             QMessageBox::warning(this,"Erreur a l'ajout d'un tag","Ce nom de tag existe deja.");
-            return 1;
+            return;
         }
     }
-    //ajouter le tag au fichier xml
-    _xd->addTag(_lineditag->text(), &_c);
-    _xd->xmlSaver();
-    emit tag_added();
-    loadXML();
+    //ajouter le tag à la liste
+    add_tag_to_list();
+
+    //_xd->addTag(_lineditag->text(), &_c);
+
     QMessageBox::warning(this,"Ajout d'un tag","Nouveau tag cree.");
-    return 0;
+    return;
 }
+
+void addtagdialog::add_tag_to_list()
+{
+    _taglist.push_back(new tag(_lineditag->text(),_c));
+}
+
+QVector<tag*> addtagdialog::getTagList()
+{
+    return _taglist;
+}
+
 
