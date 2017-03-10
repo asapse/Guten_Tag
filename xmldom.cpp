@@ -65,6 +65,16 @@ void xmldom::xmlSaver()
     file.close();
 }
 
+void xmldom::addTag(QString s, QColor *c)
+{
+    QDomElement root = _dom->documentElement();
+    QDomElement newtag = _dom->createElement(QString("tag"));
+
+    newtag.setAttribute(QString("name"),s);
+    newtag.setAttribute(QString("color"),c->name());
+    root.appendChild(newtag);
+}
+
 QVector<tag*> xmldom::getTagList()
 {
     return _taglist;

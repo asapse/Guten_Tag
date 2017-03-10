@@ -25,8 +25,10 @@ taglayout::taglayout(xmldom *xd) : QWidget()
     _vlayout->addLayout(_hlay);
     this->setLayout(_vlayout);
 
-    _dial = new addtagdialog(_taglist);
+    _dial = new addtagdialog(xd);
     connect(_add, SIGNAL(clicked()), _dial,SLOT(open()));
+    connect(_dial, SIGNAL(tag_added()), this,SLOT(update())); //update doesn't do what i want
+                                                              //how to print_tags() again
 }
 
 

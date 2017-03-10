@@ -26,6 +26,7 @@ class xmldom : public QWidget
         void xmlOpen();
         void xmlReader();
         void xmlSaver();
+        void addTag(QString s, QColor *c);
         QVector<tag*> getTagList();
 
 };

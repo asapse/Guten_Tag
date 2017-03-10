@@ -2,6 +2,7 @@
 #define ADDTAGDIALOG_HPP
 
 #include "tag.hpp"
+#include "xmldom.hpp"
 
 #include <QDialog>
 #include <QLineEdit>
@@ -17,9 +18,11 @@ class addtagdialog : public QDialog
 {
     Q_OBJECT
     public:
-        addtagdialog(QVector<tag*> taglist);
+        addtagdialog(xmldom *xd);
+        void loadXML();
     private:
         QVector<tag*> _taglist;
+        xmldom *_xd;
         QVBoxLayout *_vlayout;
         QHBoxLayout *_hlaytop;
         QHBoxLayout *_hlaybot;
@@ -28,7 +31,7 @@ class addtagdialog : public QDialog
         QLineEdit *_lineditag;
         QColor _c;
     signals:
-
+        void tag_added();
     public slots:
         int accept_add_tag();
 };
