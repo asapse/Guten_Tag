@@ -1,12 +1,13 @@
 #ifndef XMLDOM_HPP
 #define XMLDOM_HPP
 
+#include "tag.hpp"
+
 #include <QtXml/qxml.h>
 #include <QDomDocument>
 #include <QString>
 #include <QWidget>
 #include <QString>
-#include <tag.hpp>
 #include <QDir>
 #include <QMessageBox>
 #include <iostream>

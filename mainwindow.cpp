@@ -12,10 +12,8 @@ MainWindow::MainWindow()
     xmldom *xd = new xmldom();
     xd->xmlOpen();
     xd->xmlReader();
-    _taglist = xd->getTagList();
 
-
-    taglayout *tagcontent = new taglayout(&_taglist);
+    taglayout *tagcontent = new taglayout(xd);
     explorerlayout *explorercontent = new explorerlayout();
 
     QHBoxLayout *hlayout = new QHBoxLayout;

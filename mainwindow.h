@@ -11,7 +11,6 @@ class MainWindow : public QWidget
 {
     Q_OBJECT
 private:
-    QVector<tag*> _taglist;
     taglayout *_taglay;
     explorerlayout *_explolay;
 public:
