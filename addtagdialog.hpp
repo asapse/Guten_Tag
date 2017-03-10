@@ -12,7 +12,6 @@
 
 class addtagdialog : public QDialog
 {
-    Q_OBJECT
     public:
         addtagdialog(QVector<tag*> taglist);
         void setBulletColor(QColor c);

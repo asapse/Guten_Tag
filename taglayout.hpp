@@ -13,7 +13,6 @@
 
 class taglayout : public QWidget
 {
-    Q_OBJECT
     public:
         taglayout(xmldom *xd);
         void print_Tags();
