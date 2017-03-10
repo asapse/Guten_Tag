@@ -10,12 +10,12 @@
 class MainWindow : public QWidget
 {
     Q_OBJECT
-private:
-    taglayout *_taglay;
-    explorerlayout *_explolay;
-public:
-    MainWindow();
-    ~MainWindow();
+    private:
+        taglayout *_taglay;
+        explorerlayout *_explolay;
+    public:
+        MainWindow();
+        ~MainWindow();
 };
 
 #endif // MAINWINDOW_H

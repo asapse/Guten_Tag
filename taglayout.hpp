@@ -3,6 +3,7 @@
 
 #include "tag.hpp"
 #include "xmldom.hpp"
+#include "addtagdialog.hpp"
 
 #include <QLineEdit>
 #include <QLabel>
@@ -12,16 +13,19 @@
 
 class taglayout : public QWidget
 {
-public:
-    taglayout(xmldom *xd);
-    void print_Tags();
-private:
-    QLineEdit *_recherche;
-    QVector<tag*> _taglist;
-    QVBoxLayout *_vlayout;
-public slots:
-    int open_add_tag();
-    int accept_add_tag(QString *s, QColor *c);
+    Q_OBJECT
+    public:
+        taglayout(xmldom *xd);
+        void print_Tags();
+    private:
+        QLineEdit *_recherche;
+        QVector<tag*> _taglist;
+        QVBoxLayout *_vlayout;
+        QPushButton *_del;
+        QPushButton *_add;
+        QHBoxLayout *_hlay;
+        addtagdialog *_dial;
+    public slots:
 };
 
 #endif // TAGLAYOUT_HPP

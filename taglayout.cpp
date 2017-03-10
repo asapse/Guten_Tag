@@ -2,38 +2,35 @@
 
 taglayout::taglayout(xmldom *xd) : QWidget()
 {
-    _taglist = xd->getTagList();
     this->setGeometry(10, 10, 100,500);
-    QVBoxLayout *vlayout = new QVBoxLayout;
-    _vlayout = vlayout;
+    _taglist = xd->getTagList();
+    _vlayout =  new QVBoxLayout;
     _vlayout->setObjectName("Tags");
+    _del = new QPushButton("Supprimer");
+    _add = new QPushButton("Ajouter");
 
     //add here new widgets, then add them to the layout
-    QLineEdit *recherche = new QLineEdit();
-    recherche->setStyleSheet("background-color:white;");
-    recherche->setPlaceholderText("Rechercher tag");
+    _recherche = new QLineEdit();
+    _recherche->setStyleSheet("background-color:white;");
+    _recherche->setPlaceholderText("Rechercher tag");
 
-    vlayout->addWidget(recherche);
+    _vlayout->addWidget(_recherche);
 
     print_Tags();
 
-    QHBoxLayout *hlay = new QHBoxLayout;
+    _hlay = new QHBoxLayout;
+    _hlay->addWidget(_add);
+    _hlay->addWidget(_del);
 
-    vlayout->addLayout(hlay);
+    _vlayout->addLayout(_hlay);
+    this->setLayout(_vlayout);
 
-    QPushButton *add = new QPushButton("Ajouter");
-    QPushButton *del = new QPushButton("Supprimer");
-
-    hlay->addWidget(add);
-    hlay->addWidget(del);
-
-    this->setLayout(vlayout);
-
-    QDialog *addtag = new QDialog();
-    QObject::connect(add, SIGNAL(clicked()), addtag,SLOT(open()));
+    _dial = new addtagdialog(_taglist);
+    connect(_add, SIGNAL(clicked()), _dial,SLOT(open()));
 }
 
 
+//affiche les tags
 void taglayout::print_Tags()
 {
     for(int i=0; i<_taglist.size(); i++)
@@ -44,17 +41,4 @@ void taglayout::print_Tags()
 
         _vlayout->addWidget(b);
     }
-}
-
-int taglayout::accept_add_tag(QString *s, QColor *c)
-{
-    for(int i=0; i<_taglist.size(); i++)
-    {
-        if(s == _taglist.value(i)->getName())
-            //afficher l'erreur
-            QMessageBox::warning(this,"Erreur à l'ajout d'un tag","Ce nom de tag existe déjà.");
-            return 1;
-    }
-    //ajouter le tag au fichier xml
-    return 0;
 }
