@@ -5,7 +5,7 @@ taglayout::taglayout(xmldom *xd) : QWidget()
     this->setGeometry(10, 10, 100,500);
     _taglist = xd->getTagList();
     _vlayout =  new QVBoxLayout;
-    _vlayout->setObjectName("Tags");
+    //_vlayout->setObjectName("Tags");
     _del = new QPushButton("Supprimer");
     _add = new QPushButton("Ajouter");
 

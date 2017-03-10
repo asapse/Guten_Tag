@@ -3,42 +3,46 @@
 addtagdialog::addtagdialog(QVector<tag*> taglist) : QDialog()
 {
     _taglist = taglist;
+    _vlayout =  new QVBoxLayout;
+    _hlaytop = new QHBoxLayout;
+    _hlaybot = new QHBoxLayout;
+    _valid = new QPushButton("Valider");
+    _anul = new QPushButton("Annuler");
 
-    QLineEdit *tagname = new QLineEdit();
-    tagname->setPlaceholderText("Tag Name");
+    _lineditag = new QLineEdit();
+    _lineditag->setPlaceholderText("Tag Name");
+    _c = QColor(252, 61, 57);
 
-    this->setBulletColor(QColor(252, 61, 57));
+    _hlaytop->addWidget(_lineditag);
+    _hlaybot->addWidget(_anul);
+    _hlaybot->addWidget(_valid);
 
-    QHBoxLayout *hlayout = new QHBoxLayout;
-    this->setLayout(hlayout);
-    hlayout->addWidget(tagname);
+    _vlayout->addLayout(_hlaytop);
+    _vlayout->addLayout(_hlaybot);
+    this->setLayout(_vlayout);
+
+    connect(_valid, SIGNAL(clicked()), this, SLOT(accept_add_tag()));
+    connect(_anul, SIGNAL(clicked()), this, SLOT(close()));
+    connect(_anul, SIGNAL(clicked()), _lineditag, SLOT(clear()));
 }
 
-void addtagdialog::setBulletColor(QColor c)
+int addtagdialog::accept_add_tag()
 {
-    QPixmap bul = QPixmap(100, 100);
-    bul.fill(QColor(0, 0, 0, 0));
+    if(_lineditag->text() == ""){
+        QMessageBox::warning(this,"Erreur","Champ vide.");
+        return 2;
+    }
 
-    QPainter *paint = new QPainter(&bul);
-    QPen pen;
-    pen.setColor(c);
-    pen.setWidth(10);
-    paint->setPen(pen);
-    paint->setBrush(c.lighter(110));
-    paint->drawEllipse(QPoint(bul.width()/2,
-                              bul.height()/2), 45, 45);
-}
-
-int addtagdialog::accept_add_tag(QString *s, QColor *c)
-{
     for(int i=0; i<_taglist.size(); i++)
     {
-        if(s == _taglist.value(i)->getName())
+        if(_lineditag->text() == _taglist.value(i)->getName()){
             //afficher l'erreur
-            QMessageBox::warning(this,"Erreur à l'ajout d'un tag","Ce nom de tag existe déjà.");
+            QMessageBox::warning(this,"Erreur a l'ajout d'un tag","Ce nom de tag existe deja.");
             return 1;
+        }
     }
     //ajouter le tag au fichier xml
+    QMessageBox::warning(this,"Ajout d'un tag","Nouveau tag cree.");
     return 0;
 }
 
