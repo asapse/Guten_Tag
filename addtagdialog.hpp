@@ -28,7 +28,6 @@ class addtagdialog : public QDialog
         QPushButton *_valid;
         QPushButton *_anul;
         QLineEdit *_lineditag;
-        QColor _c;
     signals:
         void tag_added();
     public slots:
