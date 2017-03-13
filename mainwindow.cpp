@@ -14,6 +14,9 @@ MainWindow::MainWindow()
     xd->xmlReader();
 
     taglayout *tagcontent = new taglayout(xd);
+    QVector<tag*> taglist = tagcontent->getTagList();
+    qDebug() << taglist;
+    xd->saveTagListToXML(taglist);
     explorerlayout *explorercontent = new explorerlayout();
 
     QHBoxLayout *hlayout = new QHBoxLayout;
