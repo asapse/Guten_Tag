@@ -6,6 +6,7 @@
 #include <xmldom.hpp>
 #include <taglayout.hpp>
 #include <explorerlayout.hpp>
+#include <QDebug>
 
 class MainWindow : public QWidget
 {
@@ -13,6 +14,8 @@ class MainWindow : public QWidget
     private:
         taglayout *_taglay;
         explorerlayout *_explolay;
+        xmldom *_xd;
+        QVector<tag*> _taglist;
     public:
         MainWindow();
         ~MainWindow();

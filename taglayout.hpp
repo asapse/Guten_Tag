@@ -20,7 +20,7 @@ class taglayout : public QWidget
         taglayout(xmldom *xd);
         void print_Tags();
         QVector<tag*> getTagList();
-        QPushButton *createButton();
+        QPushButton *createButton(tag *tag);
     private:
         QLineEdit *_recherche;
         QVector<tag*> _taglist;

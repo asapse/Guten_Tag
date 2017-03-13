@@ -11,6 +11,7 @@
 #include <QDir>
 #include <QMessageBox>
 #include <iostream>
+#include <QDebug>
 
 class xmldom : public QWidget
 {
