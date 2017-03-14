@@ -12,18 +12,23 @@ taglayout::taglayout(xmldom *xd) : QWidget()
     _recherche = new QLineEdit();
     _recherche->setStyleSheet("background-color:white;");
     _recherche->setPlaceholderText("Rechercher tag");
-
+    _recherche->move(10,10);
     _gridlayout = new QGridLayout;
-    _gridlayout->addWidget(_recherche);
-
+    _vlayout->addWidget(_recherche);
+    _vlayout->setAlignment(_recherche,Qt::AlignTop);
     print_Tags();
 
     _hlay = new QHBoxLayout;
     _hlay->addWidget(_add);
     _hlay->addWidget(_del);
 
-    _gridlayout->addLayout(_hlay, _taglist.size()+1,0);
-    this->setLayout(_gridlayout);
+    _vlayout->addLayout(_gridlayout);
+    _vlayout->setAlignment(_hlay,Qt::AlignHCenter);
+
+    _vlayout->addLayout(_hlay);
+    _vlayout->setAlignment(_hlay,Qt::AlignBottom);
+
+    this->setLayout(_vlayout);
 
     _dial = new addtagdialog(&_taglist);
 
@@ -36,19 +41,25 @@ taglayout::taglayout(xmldom *xd) : QWidget()
 
 //affiche les tags
 void taglayout::print_Tags()
-{
+{      
     for(int i=0; i<_taglist.size(); i++)
     {
         QPushButton *but = createButton(_taglist.value(i));
-        _vlayout->addWidget(but);
+        if(i<11){
+            _gridlayout->addWidget(but,i,0);
+        }else if(i<22){
+            _gridlayout->addWidget(but,i-11,1);
+        } else if(i<33){
+            _gridlayout->addWidget(but,i-22,2);
+        }
     }
-    _gridlayout->addLayout(_vlayout,1,0);
+
 }
 
 void taglayout::slot_print_Tags()
 {
     QPushButton *but = createButton(_taglist.last());
-    _vlayout->addWidget(but);
+    _gridlayout->addWidget(but,_taglist.size()%12, _taglist.size()/12);
 }
 
 QPushButton *taglayout::createButton(tag *item)

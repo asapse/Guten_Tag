@@ -15,6 +15,7 @@
 #include <QDebug>
 #include <QRgb>
 #include <QList>
+#include <QListWidget>
 
 class addtagdialog : public QDialog
 {
@@ -31,7 +32,8 @@ class addtagdialog : public QDialog
         QPushButton *_valid;
         QPushButton *_anul;
         QLineEdit *_lineditag;
-    signals:
+
+signals:
         void tag_added();
     public slots:
         void accept_add_tag();

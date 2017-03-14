@@ -14,12 +14,14 @@ explorerlayout::explorerlayout(): QWidget()
     _qtableview->adjustSize();
     _qtableview->verticalHeader()->setVisible(false);
     _qtableview->horizontalHeader()->setStretchLastSection(true);
+    _qtableview->setColumnWidth(0,250);
 
     _path = new QLineEdit();
-    _backbutton = new QPushButton("<", this);
-    _backbutton->setMaximumWidth(50);
     _path->setStyleSheet("background-color:white;");
     _path->setText(_qfilemodel->rootPath());
+
+    _backbutton = new QPushButton("<", this);
+    _backbutton->setMaximumWidth(50);
 
     _completer = new QCompleter(this);
     _completer->setModel(_qfilemodel);

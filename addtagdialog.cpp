@@ -8,7 +8,6 @@ addtagdialog::addtagdialog(QVector<tag*> *taglist) : QDialog()
     _hlaybot = new QHBoxLayout;
     _valid = new QPushButton("Valider");
     _anul = new QPushButton("Annuler");
-
     _valid->setDefault(true);
 
     this->setWindowTitle("Ajouter Tag");
@@ -19,7 +18,6 @@ addtagdialog::addtagdialog(QVector<tag*> *taglist) : QDialog()
     _hlaytop->addWidget(_lineditag);
     _hlaybot->addWidget(_anul);
     _hlaybot->addWidget(_valid);
-
     _vlayout->addLayout(_hlaytop);
     _vlayout->addLayout(_hlaybot);
     this->setLayout(_vlayout);

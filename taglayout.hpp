@@ -4,7 +4,6 @@
 #include "tag.hpp"
 #include "xmldom.hpp"
 #include "addtagdialog.hpp"
-#include "mymodel.h"
 
 #include <QLineEdit>
 #include <QLabel>
@@ -32,6 +31,7 @@ class taglayout : public QWidget
         addtagdialog *_dial;
         QGridLayout *_gridlayout;
         QListView *_listview;
+
     public slots:
         void slot_print_Tags();
         void findTag();
