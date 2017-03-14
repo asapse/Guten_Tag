@@ -1,9 +1,12 @@
 #include "taglayout.hpp"
 
-taglayout::taglayout(xmldom *xd) : QWidget()
+taglayout::taglayout(xmldom *xd, explorerlayout* el) : QWidget()
 {
     this->setGeometry(10, 10, 100,500);
     _taglist = xd->getTagList();
+
+    _explayout = el;
+
     _vlayout = new QVBoxLayout;
     _del = new QPushButton("Supprimer");
     _add = new QPushButton("Ajouter");
@@ -45,7 +48,8 @@ void taglayout::print_Tags()
     for(int i=0; i<_taglist.size(); i++)
     {
         QPushButton *but = createButton(_taglist.value(i));
-        _gridlayout->addWidget(but, i%12, i/12);
+        _gridlayout->addWidget(but, i%11, i/11);
+        connect(but, SIGNAL(clicked()), this, SLOT(on_tagbutton_clicked()));
     }
 
 }
@@ -53,7 +57,7 @@ void taglayout::print_Tags()
 void taglayout::slot_print_Tags()
 {
     QPushButton *but = createButton(_taglist.last());
-    _gridlayout->addWidget(but,_taglist.size()%12, _taglist.size()/12);
+    _gridlayout->addWidget(but,(_taglist.size()-1)%11, _taglist.size()/11);
 }
 
 QPushButton *taglayout::createButton(tag *item)
@@ -81,5 +85,30 @@ void taglayout::findTag()
     for(int i=0;i<_taglist.size(); i++)
     {
         //chercher si le tag existe
+    }
+}
+
+void taglayout::on_tagbutton_clicked()
+{
+    if(_explayout->getIndexTableView().size()>0)
+    {
+       for(int i=0; i<_explayout->getIndexTableView().size(); ++i){
+           QString path = _explayout->getPath()+"/"+_explayout->getIndexTableView().at(i).data().toString();
+           QPushButton* button = qobject_cast<QPushButton*>(sender());
+           addFile(button->text(), path);
+       }
+    }
+}
+
+void taglayout::addFile(QString tagname, QString file)
+{
+    for(int i = 0; i<_taglist.size();++i){
+        if(_taglist.at(i)->getName().compare(tagname)==0){
+            if(!_taglist.at(i)->getVector().contains(file)){
+                 _taglist.at(i)->addFile(file);
+            }else{
+                QMessageBox::warning(this,"Le fichier est déjà taggé","le fichier/dossier "+ file+" est déjà taggé en "+tagname);
+            }
+        }
     }
 }

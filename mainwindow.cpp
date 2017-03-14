@@ -10,8 +10,9 @@ MainWindow::MainWindow()
     _xd->xmlOpen();
     _xd->xmlReader();
 
-    _taglay = new taglayout(_xd);
-    _explolay = new explorerlayout();
+    _explolay = new explorerlayout(_xd);
+
+    _taglay = new taglayout(_xd, _explolay);
 
     QHBoxLayout *hlayout = new QHBoxLayout;
 

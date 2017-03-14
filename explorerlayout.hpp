@@ -1,6 +1,8 @@
 #ifndef EXPLORERLAYOUT_HPP
 #define EXPLORERLAYOUT_HPP
 
+#include "xmldom.hpp"
+
 #include <QWidget>
 #include <QObject>
 #include <QFileSystemModel>
@@ -15,14 +17,19 @@
 #include <QHeaderView>
 #include <QCompleter>
 #include <QDirModel>
-#include <QTreeView>
+#include <QListWidget>
+#include <QItemSelectionModel>
 
 class explorerlayout : public QWidget
 {
     Q_OBJECT
     public:
-        explorerlayout();
+        explorerlayout(xmldom *xdom);
+        QTableView* getTableView();
+        QModelIndexList getIndexTableView();
+        QString getPath();
     private:
+        xmldom * _xdom;
         QFileSystemModel *_qfilemodel;
         QTableView *_qtableview;
         QLineEdit *_path ;
@@ -30,7 +37,7 @@ class explorerlayout : public QWidget
         QPushButton *_backbutton;
         QHBoxLayout * _pathlayout;
         QCompleter * _completer;
-        QTreeView * _qtreeview;
+        QListWidget * _listwidget;
     public slots:
         void on_qtableview_doubleClicked(const QModelIndex &index);
         void on_path_returnPressed();
