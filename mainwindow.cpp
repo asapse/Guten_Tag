@@ -9,17 +9,17 @@
 MainWindow::MainWindow()
 {
     //initialisation de la liste de tags
-    xmldom *xd = new xmldom();
-    xd->xmlOpen();
-    xd->xmlReader();
+    _xd = new xmldom();
+    _xd->xmlOpen();
+    _xd->xmlReader();
 
-    taglayout *tagcontent = new taglayout(xd);
-    explorerlayout *explorercontent = new explorerlayout();
+    _taglay = new taglayout(_xd);
+    _explolay = new explorerlayout();
 
     QHBoxLayout *hlayout = new QHBoxLayout;
 
-    hlayout->addWidget(tagcontent);
-    hlayout->addWidget(explorercontent);
+    hlayout->addWidget(_taglay);
+    hlayout->addWidget(_explolay);
     this->setLayout(hlayout);
 
     this->setFixedSize(1400, 900);
@@ -29,6 +29,9 @@ MainWindow::MainWindow()
 
 MainWindow::~MainWindow()
 {
+    _taglist = _taglay->getTagList();
+    qDebug() << _taglist;
+    _xd->saveTagListToXML(_taglist);
 }
 
 

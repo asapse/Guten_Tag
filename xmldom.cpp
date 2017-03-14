@@ -65,14 +65,26 @@ void xmldom::xmlSaver()
     file.close();
 }
 
-//à faire quand on qui l'appli, puis xmlSaver()
-void xmldom::addTag(QString s, QColor *c)
+void xmldom::saveTagListToXML(QVector<tag*> taglist)
+{
+    for(int i=0; i<taglist.size(); i++)
+    {
+        //qDebug() << taglist.value(i);
+        //qDebug() << _taglist.value(i);
+        if(taglist.value(i) != _taglist.value(i))
+            this->addTag(taglist.value(i)->getName(), taglist.value(i)->getColor());
+    }
+    this->xmlSaver();
+}
+
+//à faire quand on quitte l'appli, puis xmlSaver()
+void xmldom::addTag(QString s, QColor c)
 {
     QDomElement root = _dom->documentElement();
     QDomElement newtag = _dom->createElement(QString("tag"));
 
     newtag.setAttribute(QString("name"),s);
-    newtag.setAttribute(QString("color"),c->name());
+    newtag.setAttribute(QString("color"),c.name());
     root.appendChild(newtag);
 }
 

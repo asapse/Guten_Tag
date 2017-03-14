@@ -18,18 +18,16 @@ class addtagdialog : public QDialog
 {
     Q_OBJECT
     public:
-        addtagdialog(QVector<tag*> taglist);
+        addtagdialog(QVector<tag*> *taglist);
         void add_tag_to_list();
-        QVector<tag*> getTagList();
     private:
-        QVector<tag*> _taglist;
+        QVector<tag*> *_taglist;
         QVBoxLayout *_vlayout;
         QHBoxLayout *_hlaytop;
         QHBoxLayout *_hlaybot;
         QPushButton *_valid;
         QPushButton *_anul;
         QLineEdit *_lineditag;
-        QColor _c;
     signals:
         void tag_added();
     public slots:

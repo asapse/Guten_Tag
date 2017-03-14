@@ -10,12 +10,17 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QMessageBox>
+#include <QObject>
+#include <QListWidget>
 
 class taglayout : public QWidget
 {
+    Q_OBJECT
     public:
         taglayout(xmldom *xd);
         void print_Tags();
+        QVector<tag*> getTagList();
+        QPushButton *createButton(tag *tag);
     private:
         QLineEdit *_recherche;
         QVector<tag*> _taglist;
@@ -24,6 +29,7 @@ class taglayout : public QWidget
         QPushButton *_add;
         QHBoxLayout *_hlay;
         addtagdialog *_dial;
+        QGridLayout *_gridlayout;
     public slots:
         void slot_print_Tags();
 };
