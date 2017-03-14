@@ -58,12 +58,11 @@ void addtagdialog::accept_add_tag()
 void addtagdialog::add_tag_to_list()
 {
     //créer 10 couleurs de base et choisir entre ces 10
-    QColor c = QColor(
-        (rand() % 255), // red component of color
-        (rand() % 255), // green component of color
-        (rand() % 255) // blue component of color
-    );
-    _taglist->push_back(new tag(_lineditag->text(),c));
-}
+    QColor couleurs[] = {QColor(255,51,51), QColor(255,153,51), QColor(255,255,51), QColor(153,255,51),
+                 QColor(51,255,153), QColor(51,255,255), QColor(51,153,255),
+                 QColor(51,51,255), QColor(153,51,255), QColor(255,51,153)};
 
+    int r = rand() % 9;
+    _taglist->push_back(new tag(_lineditag->text(),couleurs[r]));
+}
 

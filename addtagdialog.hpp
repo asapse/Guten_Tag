@@ -13,6 +13,8 @@
 #include <QPixmap>
 #include <QPainter>
 #include <QDebug>
+#include <QRgb>
+#include <QList>
 
 class addtagdialog : public QDialog
 {
@@ -20,6 +22,7 @@ class addtagdialog : public QDialog
     public:
         addtagdialog(QVector<tag*> *taglist);
         void add_tag_to_list();
+        void setEllipse();
     private:
         QVector<tag*> *_taglist;
         QVBoxLayout *_vlayout;

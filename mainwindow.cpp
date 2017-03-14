@@ -2,12 +2,9 @@
 #include "taglayout.hpp"
 #include "explorerlayout.hpp"
 
-#include <QLabel>
-#include <QProgressBar>
-#include <QPushButton>
-
 MainWindow::MainWindow()
 {
+    this->setGeometry(QRect(250,50,0,0));
     //initialisation de la liste de tags
     _xd = new xmldom();
     _xd->xmlOpen();
@@ -23,14 +20,11 @@ MainWindow::MainWindow()
     this->setLayout(hlayout);
 
     this->setFixedSize(1400, 900);
-
-    //connect(this, SIGNAL(aboutToQuit()), xd, SLOT(xmlSaver()));
 }
 
 MainWindow::~MainWindow()
 {
     _taglist = _taglay->getTagList();
-    qDebug() << _taglist;
     _xd->saveTagListToXML(_taglist);
 }
 

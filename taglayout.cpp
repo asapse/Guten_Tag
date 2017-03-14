@@ -14,8 +14,6 @@ taglayout::taglayout(xmldom *xd) : QWidget()
     _recherche->setPlaceholderText("Rechercher tag");
 
     _gridlayout = new QGridLayout;
-    _gridlayout->setGeometry(QRect(0,0,0,0));
-    //_gridlayout->setVerticalSpacing(135);
     _gridlayout->addWidget(_recherche);
 
     print_Tags();
@@ -28,8 +26,11 @@ taglayout::taglayout(xmldom *xd) : QWidget()
     this->setLayout(_gridlayout);
 
     _dial = new addtagdialog(&_taglist);
+
     connect(_add, SIGNAL(clicked()), _dial,SLOT(open()));
     connect(_dial, SIGNAL(tag_added()), this,SLOT(slot_print_Tags()));
+
+    //connect(_recherche, SIGNAL)
 }
 
 
@@ -58,10 +59,22 @@ QPushButton *taglayout::createButton(tag *item)
     b->setCursor(Qt::PointingHandCursor);
     b->setMinimumWidth(68);
     b->setMinimumHeight(60);
+    QFont font = b->font();
+    font.setPointSize(16);
+    b->setFont(font);
     return b;
 }
 
 QVector<tag*> taglayout::getTagList()
 {
     return _taglist;
+}
+
+void taglayout::findTag()
+{
+    QString searchString = _recherche->text();
+    for(int i=0;i<_taglist.size(); i++)
+    {
+        //chercher si le tag existe
+    }
 }
