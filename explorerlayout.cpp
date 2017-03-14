@@ -3,6 +3,7 @@
 explorerlayout::explorerlayout(): QWidget()
 {
     _vlayout = new QVBoxLayout;
+    _vlayout->setSizeConstraint(QLayout::SetNoConstraint);
     _pathlayout = new QHBoxLayout;
 
     _qfilemodel = new QFileSystemModel(this);
@@ -13,23 +14,31 @@ explorerlayout::explorerlayout(): QWidget()
     _qtableview->adjustSize();
     _qtableview->verticalHeader()->setVisible(false);
     _qtableview->horizontalHeader()->setStretchLastSection(true);
+
     _path = new QLineEdit();
     _backbutton = new QPushButton("<", this);
+    _backbutton->setMaximumWidth(50);
     _path->setStyleSheet("background-color:white;");
     _path->setText(_qfilemodel->rootPath());
 
+    _completer = new QCompleter(this);
+    _completer->setModel(_qfilemodel);
+    _path->setCompleter(_completer);
+
+    _qtreeview = new QTreeView();
+    _qtreeview->setMaximumHeight(250);
     _pathlayout->addWidget(_backbutton);
     _pathlayout->addWidget(_path);
+
     _vlayout->addLayout(_pathlayout);
     _vlayout->addWidget(_qtableview);
+    _vlayout->addWidget(_qtreeview);
 
     this->setLayout(_vlayout);
     connect(_qtableview, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(on_qtableview_doubleClicked(QModelIndex)));
     connect(_path, SIGNAL(returnPressed()), this, SLOT(on_path_returnPressed()));
     connect(_backbutton, SIGNAL(clicked()), this, SLOT(on_backbutton_clicked()));
-
-
-
+    connect(_qtableview, SIGNAL(clicked(QModelIndex)), this, SLOT(on_qtableview_clicked(QModelIndex)));
 }
 
 void explorerlayout::on_qtableview_doubleClicked(const QModelIndex &index)
@@ -55,4 +64,9 @@ void explorerlayout::on_backbutton_clicked()
     qd->cdUp();
     _qtableview->setRootIndex(_qfilemodel->setRootPath(qd->absolutePath()));
     _path->setText(qd->absolutePath());
+}
+
+void explorerlayout::on_qtableview_clicked(const QModelIndex &index)
+{
+
 }
