@@ -45,13 +45,7 @@ void taglayout::print_Tags()
     for(int i=0; i<_taglist.size(); i++)
     {
         QPushButton *but = createButton(_taglist.value(i));
-        if(i<11){
-            _gridlayout->addWidget(but,i,0);
-        }else if(i<22){
-            _gridlayout->addWidget(but,i-11,1);
-        } else if(i<33){
-            _gridlayout->addWidget(but,i-22,2);
-        }
+        _gridlayout->addWidget(but, i%12, i/12);
     }
 
 }
