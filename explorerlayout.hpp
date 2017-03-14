@@ -10,7 +10,9 @@
 #include <QString>
 #include <QDir>
 #include <QMessageBox>
+#include <QPushButton>
 #include <iostream>
+#include <QHeaderView>
 
 class explorerlayout : public QWidget
 {
@@ -22,9 +24,12 @@ class explorerlayout : public QWidget
         QTableView *_qtableview;
         QLineEdit *_path ;
         QVBoxLayout *_vlayout;
+        QPushButton *_backbutton;
+        QHBoxLayout * _pathlayout;
     public slots:
         void on_qtableview_doubleClicked(const QModelIndex &index);
         void on_path_returnPressed();
+        void on_backbutton_clicked();
 };
 
 #endif // EXPLORERLAYOUT_HPP
