@@ -29,7 +29,7 @@ explorerlayout::explorerlayout(xmldom *xdom): QWidget()
     _path->setCompleter(_completer);
 
     _listwidget = new QListWidget();
-    _listwidget->setMaximumHeight(250);
+    _listwidget->setMaximumHeight(150);
     _pathlayout->addWidget(_backbutton);
     _pathlayout->addWidget(_path);
 
@@ -73,10 +73,12 @@ void explorerlayout::on_qtableview_clicked(const QModelIndex &index)
 {
     _listwidget->clear();
     QString path = _qfilemodel->rootPath()+"/"+index.data().toString();
+    int j=0;
     for(int i=0; i<_xdom->getTagList()->size(); ++i){
         if(_xdom->getTagList()->at(i)->getVector().contains(path)){
             _listwidget->addItem(_xdom->getTagList()->at(i)->getName());
-           // _listwidget->item(i)->setBackgroundColor(_xdom->getTagList()->at(i)->getColor());
+            _listwidget->item(j)->setBackgroundColor(_xdom->getTagList()->at(i)->getColor());
+            ++j;
         }
     }
 }

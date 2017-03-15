@@ -19,7 +19,7 @@
 #include <QDirModel>
 #include <QListWidget>
 #include <QItemSelectionModel>
-
+#include <QDebug>
 class explorerlayout : public QWidget
 {
     Q_OBJECT
