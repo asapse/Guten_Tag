@@ -105,6 +105,9 @@ void taglayout::on_tagbutton_clicked()
            addFile(button->text(), path);
        }
     }
+    else{
+
+    }
 }
 
 void taglayout::addFile(QString tagname, QString file)

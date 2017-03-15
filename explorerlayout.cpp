@@ -46,10 +46,10 @@ explorerlayout::explorerlayout(xmldom *xdom): QWidget()
 
 void explorerlayout::on_qtableview_doubleClicked(const QModelIndex &index)
 {
-        if(index.column() == 0){
-            _qtableview->setRootIndex(_qfilemodel->setRootPath(_qfilemodel->rootPath()+"/"+index.data().toString()));
-            _path->setText(_qfilemodel->rootPath());
-        }
+    if(index.column() == 0){
+        _qtableview->setRootIndex(_qfilemodel->setRootPath(_qfilemodel->rootPath()+"/"+index.data().toString()));
+        _path->setText(_qfilemodel->rootPath());
+    }
 }
 
 void explorerlayout::on_path_returnPressed()
