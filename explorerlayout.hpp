@@ -28,6 +28,7 @@ class explorerlayout : public QWidget
         QTableView* getTableView();
         QModelIndexList getIndexTableView();
         QString getPath();
+        void filter(QString name);
     private:
         xmldom * _xdom;
         QFileSystemModel *_qfilemodel;
@@ -38,6 +39,7 @@ class explorerlayout : public QWidget
         QHBoxLayout * _pathlayout;
         QCompleter * _completer;
         QListWidget * _listwidget;
+        QListWidget * _listfiles;
     public slots:
         void on_qtableview_doubleClicked(const QModelIndex &index);
         void on_path_returnPressed();

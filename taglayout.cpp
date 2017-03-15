@@ -106,7 +106,8 @@ void taglayout::on_tagbutton_clicked()
        }
     }
     else{
-
+        QPushButton* button = qobject_cast<QPushButton*>(sender());
+        _explayout->filter(button->text());
     }
 }
 
@@ -117,7 +118,8 @@ void taglayout::addFile(QString tagname, QString file)
             if(!_taglist->at(i)->getVector().contains(file)){
                  _taglist->at(i)->addFile(file);
             }else{
-                QMessageBox::warning(this,"Le fichier est déjà taggé","le fichier/dossier: "+ file+" est déjà taggé en "+tagname);
+                _taglist->at(i)->deleteFile(file);
+                //QMessageBox::warning(this,"Le fichier est déjà taggé","le fichier/dossier: "+ file+" est déjà taggé en "+tagname);
             }
         }
     }

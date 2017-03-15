@@ -73,10 +73,9 @@ void xmldom::saveTagListToXML()
     _dom->appendChild(newtag);
     for(int i=0; i<_taglist->size(); i++)
     {
-        //qDebug() << taglist.value(i);
-        //qDebug() << _taglist.value(i);
-
         this->addTag(_taglist->at(i)->getName(), _taglist->at(i)->getColor());
+        for(int j=0; j<_taglist->at(i)->getVector().size();++j)
+            this->addFile(_dom->documentElement().lastChild().toElement(),_taglist->at(i)->getVector().at(j));
     }
     this->xmlSaver();
 }
@@ -90,6 +89,13 @@ void xmldom::addTag(QString s, QColor c)
     newtag.setAttribute(QString("name"),s);
     newtag.setAttribute(QString("color"),c.name());
     root.appendChild(newtag);
+}
+
+void xmldom::addFile(QDomElement root,QString path)
+{
+    QDomElement newfile = _dom->createElement(QString("file"));
+    newfile.setAttribute(QString("path"),path);
+    root.appendChild(newfile);
 }
 
 QVector<tag*>* xmldom::getTagList()

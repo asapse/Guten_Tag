@@ -32,8 +32,10 @@ explorerlayout::explorerlayout(xmldom *xdom): QWidget()
     _listwidget->setMaximumHeight(150);
     _pathlayout->addWidget(_backbutton);
     _pathlayout->addWidget(_path);
-
+    _listfiles = new QListWidget();
+    _listfiles->hide();
     _vlayout->addLayout(_pathlayout);
+    _vlayout->addWidget(_listfiles);
     _vlayout->addWidget(_qtableview);
     _vlayout->addWidget(_listwidget);
 
@@ -94,4 +96,26 @@ QModelIndexList explorerlayout::getIndexTableView(){
 
 QString explorerlayout::getPath(){
     return _path->text();
+}
+
+void explorerlayout::filter(QString name)
+{
+    _listwidget->clear();
+    _listfiles->clear();
+    if(_listfiles->isHidden()){
+        int i = 0;
+        while(_xdom->getTagList()->at(i)->getName().compare(name)!=0)
+            ++i;
+        QVector<QString> vfiles =_xdom->getTagList()->at(i)->getVector();
+        for(int k=0; k<vfiles.size(); ++k){
+            _listfiles->addItem(vfiles.at(k));
+        }
+        _qtableview->hide();
+        _listfiles->show();
+    }
+    else{
+        _listfiles->hide();
+        _qtableview->show();
+    }
+
 }

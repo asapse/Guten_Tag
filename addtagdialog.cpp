@@ -49,7 +49,7 @@ void addtagdialog::accept_add_tag()
     add_tag_to_list();
     emit tag_added();
 
-    QMessageBox::information(this,"Ajout d'un tag","Nouveau tag cree.");
+    //QMessageBox::information(this,"Ajout d'un tag","Nouveau tag cree.");
     return;
 }
 
