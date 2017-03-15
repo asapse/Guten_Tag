@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <list-tags>
-	<tag name="jaune" color="yellow">
-	</tag>
-	<tag name="bleu" color="blue">
-	</tag>
-	<tag name="vert" color="green">
-	</tag>
-	<tag name="rouge" color="red">
-	</tag>
+	<tag name="bleu" color="#3399ff"/>
+	<tag name="vert" color="#99ff33"/>
+	<tag name="rouge" color="#ff3333"/>
 </list-tags>
