@@ -38,7 +38,7 @@ taglayout::taglayout(xmldom *xd, explorerlayout* el) : QWidget()
     connect(_add, SIGNAL(clicked()), _dial,SLOT(open()));
     connect(_dial, SIGNAL(tag_added()), this,SLOT(slot_print_Tags()));
 
-    //connect(_recherche, SIGNAL)
+    connect(_recherche, SIGNAL(textChanged(QString)), this, SLOT(findTag()));
 }
 
 
@@ -82,9 +82,16 @@ QVector<tag*>* taglayout::getTagList()
 void taglayout::findTag()
 {
     QString searchString = _recherche->text();
-    for(int i=0;i<_xd->getTagList()->size(); i++)
+    for(int i=0;i<_taglist->size(); i++)
     {
         //chercher si le tag existe
+        if(!_taglist->at(i)->getName().compare(searchString)==0 && !_taglist->at(i)->getName().contains(searchString))
+        {
+            _gridlayout->itemAt(i)->widget()->hide();
+        }
+        else _gridlayout->itemAt(i)->widget()->show();
+
+        //if(_recherche->text().compare("")==0) _gridlayout->itemAt(i)->widget()->show();
     }
 }
 
