@@ -4,7 +4,7 @@ taglayout::taglayout(xmldom *xd, explorerlayout* el) : QWidget()
 {
     this->setGeometry(10, 10, 100,500);
     _taglist = xd->getTagList();
-
+    _xd = xd;
     _explayout = el;
 
     _vlayout = new QVBoxLayout;
@@ -33,7 +33,7 @@ taglayout::taglayout(xmldom *xd, explorerlayout* el) : QWidget()
 
     this->setLayout(_vlayout);
 
-    _dial = new addtagdialog(&_taglist);
+    _dial = new addtagdialog(_xd->getTagList());
 
     connect(_add, SIGNAL(clicked()), _dial,SLOT(open()));
     connect(_dial, SIGNAL(tag_added()), this,SLOT(slot_print_Tags()));
@@ -45,19 +45,18 @@ taglayout::taglayout(xmldom *xd, explorerlayout* el) : QWidget()
 //affiche les tags
 void taglayout::print_Tags()
 {      
-    for(int i=0; i<_taglist.size(); i++)
+    for(int i=0; i<_xd->getTagList()->size(); i++)
     {
-        QPushButton *but = createButton(_taglist.value(i));
+        QPushButton *but = createButton(_xd->getTagList()->value(i));
         _gridlayout->addWidget(but, i%11, i/11);
-        connect(but, SIGNAL(clicked()), this, SLOT(on_tagbutton_clicked()));
     }
 
 }
 
 void taglayout::slot_print_Tags()
 {
-    QPushButton *but = createButton(_taglist.last());
-    _gridlayout->addWidget(but,(_taglist.size()-1)%11, _taglist.size()/11);
+    QPushButton *but = createButton(_xd->getTagList()->last());
+    _gridlayout->addWidget(but,(_xd->getTagList()->size()-1)%11, _xd->getTagList()->size()/11);
 }
 
 QPushButton *taglayout::createButton(tag *item)
@@ -71,18 +70,19 @@ QPushButton *taglayout::createButton(tag *item)
     QFont font = b->font();
     font.setPointSize(16);
     b->setFont(font);
+    connect(b, SIGNAL(clicked()), this, SLOT(on_tagbutton_clicked()));
     return b;
 }
 
-QVector<tag*> taglayout::getTagList()
+QVector<tag*>* taglayout::getTagList()
 {
-    return _taglist;
+    return _xd->getTagList();
 }
 
 void taglayout::findTag()
 {
     QString searchString = _recherche->text();
-    for(int i=0;i<_taglist.size(); i++)
+    for(int i=0;i<_xd->getTagList()->size(); i++)
     {
         //chercher si le tag existe
     }
@@ -102,12 +102,12 @@ void taglayout::on_tagbutton_clicked()
 
 void taglayout::addFile(QString tagname, QString file)
 {
-    for(int i = 0; i<_taglist.size();++i){
-        if(_taglist.at(i)->getName().compare(tagname)==0){
-            if(!_taglist.at(i)->getVector().contains(file)){
-                 _taglist.at(i)->addFile(file);
+    for(int i = 0; i<_taglist->size();++i){
+        if(_taglist->at(i)->getName().compare(tagname)==0){
+            if(!_taglist->at(i)->getVector().contains(file)){
+                 _taglist->at(i)->addFile(file);
             }else{
-                QMessageBox::warning(this,"Le fichier est déjà taggé","le fichier/dossier "+ file+" est déjà taggé en "+tagname);
+                QMessageBox::warning(this,"Le fichier est déjà taggé","le fichier/dossier: "+ file+" est déjà taggé en "+tagname);
             }
         }
     }

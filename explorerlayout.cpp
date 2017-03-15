@@ -73,10 +73,10 @@ void explorerlayout::on_qtableview_clicked(const QModelIndex &index)
 {
     _listwidget->clear();
     QString path = _qfilemodel->rootPath()+"/"+index.data().toString();
-    for(int i=0; i<_xdom->getTagList().size(); ++i){
-        if(_xdom->getTagList().at(i)->getVector().contains(path)){
-            _listwidget->addItem(_xdom->getTagList().at(i)->getName());
-           // _listwidget->item(i)->setBackgroundColor(_xdom->getTagList().at(i)->getColor());
+    for(int i=0; i<_xdom->getTagList()->size(); ++i){
+        if(_xdom->getTagList()->at(i)->getVector().contains(path)){
+            _listwidget->addItem(_xdom->getTagList()->at(i)->getName());
+           // _listwidget->item(i)->setBackgroundColor(_xdom->getTagList()->at(i)->getColor());
         }
     }
 }

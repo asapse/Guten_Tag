@@ -15,7 +15,7 @@ class MainWindow : public QWidget
         taglayout *_taglay;
         explorerlayout *_explolay;
         xmldom *_xd;
-        QVector<tag*> _taglist;
+        QVector<tag*>* _taglist;
     public:
         MainWindow();
         ~MainWindow();

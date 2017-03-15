@@ -21,12 +21,13 @@ class taglayout : public QWidget
     public:
         taglayout(xmldom *xd, explorerlayout *el);
         void print_Tags();
-        QVector<tag*> getTagList();
+        QVector<tag*>* getTagList();
         QPushButton *createButton(tag *tag);
         void addFile(QString tagname, QString file);
     private:
+        xmldom *_xd;
         QLineEdit *_recherche;
-        QVector<tag*> _taglist;
+        QVector<tag*>* _taglist;
         QVBoxLayout *_vlayout;
         QPushButton *_del;
         QPushButton *_add;

@@ -26,7 +26,7 @@ MainWindow::MainWindow()
 MainWindow::~MainWindow()
 {
     _taglist = _taglay->getTagList();
-    _xd->saveTagListToXML(_taglist);
+    _xd->saveTagListToXML();
 }
 
 

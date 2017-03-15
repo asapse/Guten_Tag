@@ -4,6 +4,7 @@ xmldom::xmldom() : QWidget()
 {
     _filepath = QDir::currentPath()+"/" + QString::fromStdString("default.xml");
     _dom = new QDomDocument(QString::fromStdString("xml"));
+    _taglist = new QVector<tag*>();
 }
 
 xmldom::xmldom(QString filepath) : QWidget()
@@ -48,7 +49,7 @@ void xmldom::xmlReader()
             QDomElement e = listfiles.at(i).toElement();
             files.push_back(e.attribute("path"));
         }
-        _taglist.push_back(new tag(childelement.attribute("name"), QColor(childelement.attribute("color")), files));
+        _taglist->push_back(new tag(childelement.attribute("name"), QColor(childelement.attribute("color")), files));
         child = child.nextSibling();
     }
 }
@@ -65,14 +66,17 @@ void xmldom::xmlSaver()
     file.close();
 }
 
-void xmldom::saveTagListToXML(QVector<tag*> taglist)
+void xmldom::saveTagListToXML()
 {
-    for(int i=0; i<taglist.size(); i++)
+    _dom->clear();
+    QDomElement newtag = _dom->createElement(QString("list-tags"));
+    _dom->appendChild(newtag);
+    for(int i=0; i<_taglist->size(); i++)
     {
         //qDebug() << taglist.value(i);
         //qDebug() << _taglist.value(i);
-        if(taglist.value(i) != _taglist.value(i))
-            this->addTag(taglist.value(i)->getName(), taglist.value(i)->getColor());
+
+        this->addTag(_taglist->at(i)->getName(), _taglist->at(i)->getColor());
     }
     this->xmlSaver();
 }
@@ -88,7 +92,7 @@ void xmldom::addTag(QString s, QColor c)
     root.appendChild(newtag);
 }
 
-QVector<tag*> xmldom::getTagList()
+QVector<tag*>* xmldom::getTagList()
 {
     return _taglist;
 }

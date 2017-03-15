@@ -19,7 +19,7 @@ class xmldom : public QWidget
     private:
         QDomDocument *_dom;
         QString _filepath;
-        QVector<tag*> _taglist;
+        QVector<tag*>* _taglist;
     public:
         xmldom();
         xmldom(QString filepath);
@@ -27,8 +27,8 @@ class xmldom : public QWidget
         void xmlOpen();
         void xmlReader();
         void addTag(QString s, QColor c);
-        QVector<tag*> getTagList();
-        void saveTagListToXML(QVector<tag*> taglist);
+        QVector<tag*>* getTagList();
+        void saveTagListToXML();
     public slots:
         void xmlSaver();
 };
