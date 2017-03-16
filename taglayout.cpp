@@ -53,7 +53,7 @@ void taglayout::print_Tags()
     for(int i=0; i<_xd->getTagList()->size(); i++)
     {
         QPushButton *but = createButton(_xd->getTagList()->value(i));
-        _gridlayout->addWidget(but, i%11, i/11);
+        _gridlayout->addWidget(but, i%12, i/12);
     }
 
 }
@@ -61,7 +61,11 @@ void taglayout::print_Tags()
 void taglayout::slot_print_Tags()
 {
     QPushButton *but = createButton(_xd->getTagList()->last());
-    _gridlayout->addWidget(but,(_xd->getTagList()->size()-1)%11, _xd->getTagList()->size()/11);
+    if((_xd->getTagList()->size()%12)==0)
+    {
+        _gridlayout->addWidget(but,11, (_xd->getTagList()->size()/12)-1);
+    }
+    else _gridlayout->addWidget(but,((_xd->getTagList()->size())%12)-1, _xd->getTagList()->size()/12);
 }
 
 void taglayout::slot_del_Tags()
