@@ -20,6 +20,7 @@ class deltagdialog : public QDialog
     public:
         deltagdialog(QVector<tag*> *taglist);
         void del_tag_from_list();
+        QList<int> *getTab();
     private:
         QVector<tag*> *_taglist;
         QVBoxLayout *_vlayout;
@@ -28,10 +29,12 @@ class deltagdialog : public QDialog
         QPushButton *_valid;
         QPushButton *_anul;
         QListWidget *_listCheckbox;
+        QList<int> *_tab;
     signals:
-        //void tag_added();
+        void tag_deleted();
     public slots:
-        //void accept_del_tag();
+        void print_list_checkbox();
+        void accept_del_tag();
 };
 
 #endif // DELTAGDIALOG_H

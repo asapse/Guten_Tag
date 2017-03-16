@@ -39,7 +39,9 @@ taglayout::taglayout(xmldom *xd, explorerlayout* el) : QWidget()
 
     connect(_add, SIGNAL(clicked()), _dial,SLOT(open()));
     connect(_del, SIGNAL(clicked()), _deldial,SLOT(open()));
+    connect(_del, SIGNAL(clicked()), _deldial,SLOT(print_list_checkbox()));
     connect(_dial, SIGNAL(tag_added()), this,SLOT(slot_print_Tags()));
+    connect(_deldial, SIGNAL(tag_deleted()), this,SLOT(slot_del_Tags()));
 
     connect(_recherche, SIGNAL(textChanged(QString)), this, SLOT(findTag()));
 }
@@ -60,6 +62,16 @@ void taglayout::slot_print_Tags()
 {
     QPushButton *but = createButton(_xd->getTagList()->last());
     _gridlayout->addWidget(but,(_xd->getTagList()->size()-1)%11, _xd->getTagList()->size()/11);
+}
+
+void taglayout::slot_del_Tags()
+{
+    QList<int> *list = _deldial->getTab();
+    for(int i=0;i<list->size(); i++)
+    {
+        _gridlayout->itemAt(list->at(i))->widget()->hide();
+        _gridlayout->removeWidget(_gridlayout->itemAt(list->at(i))->widget());
+    }
 }
 
 QPushButton *taglayout::createButton(tag *item)

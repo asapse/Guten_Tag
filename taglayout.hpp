@@ -41,6 +41,7 @@ class taglayout : public QWidget
 
     public slots:
         void slot_print_Tags();
+        void slot_del_Tags();
         void findTag();
         void on_tagbutton_clicked();
 

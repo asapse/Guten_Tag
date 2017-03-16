@@ -29,14 +29,16 @@ SOURCES += main.cpp\
     xmldom.cpp \
     explorerlayout.cpp \
     taglayout.cpp \
-    addtagdialog.cpp
+    addtagdialog.cpp \
+    deltagdialog.cpp
 
 HEADERS  += mainwindow.h \
     tag.hpp \
     xmldom.hpp \
     explorerlayout.hpp \
     taglayout.hpp \
-    addtagdialog.hpp
+    addtagdialog.hpp \
+    deltagdialog.hpp
 
 DISTFILES += \
     default.xml
