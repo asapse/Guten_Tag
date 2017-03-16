@@ -4,6 +4,7 @@
 #include "tag.hpp"
 #include "xmldom.hpp"
 #include "addtagdialog.hpp"
+#include "deltagdialog.hpp"
 #include "explorerlayout.hpp"
 
 #include <QLineEdit>
@@ -33,6 +34,7 @@ class taglayout : public QWidget
         QPushButton *_add;
         QHBoxLayout *_hlay;
         addtagdialog *_dial;
+        deltagdialog *_deldial;
         QGridLayout *_gridlayout;
         QListView *_listview;
         explorerlayout * _explayout;

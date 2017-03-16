@@ -1,5 +1,5 @@
-#ifndef ADDTAGDIALOG_HPP
-#define ADDTAGDIALOG_HPP
+#ifndef DELTAGDIALOG_H
+#define DELTAGDIALOG_H
 
 #include "tag.hpp"
 #include "xmldom.hpp"
@@ -10,19 +10,16 @@
 #include <QMessageBox>
 #include <QColor>
 #include <QPushButton>
-#include <QPixmap>
-#include <QPainter>
 #include <QDebug>
-#include <QRgb>
 #include <QList>
 #include <QListWidget>
 
-class addtagdialog : public QDialog
+class deltagdialog : public QDialog
 {
     Q_OBJECT
     public:
-        addtagdialog(QVector<tag*> *taglist);
-        void add_tag_to_list();
+        deltagdialog(QVector<tag*> *taglist);
+        void del_tag_from_list();
     private:
         QVector<tag*> *_taglist;
         QVBoxLayout *_vlayout;
@@ -30,12 +27,11 @@ class addtagdialog : public QDialog
         QHBoxLayout *_hlaybot;
         QPushButton *_valid;
         QPushButton *_anul;
-        QLineEdit *_lineditag;
-
+        QListWidget *_listCheckbox;
     signals:
-        void tag_added();
+        //void tag_added();
     public slots:
-        void accept_add_tag();
+        //void accept_del_tag();
 };
 
-#endif // ADDTAGDIALOG_HPP
+#endif // DELTAGDIALOG_H

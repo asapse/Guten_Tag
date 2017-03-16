@@ -19,6 +19,7 @@ taglayout::taglayout(xmldom *xd, explorerlayout* el) : QWidget()
     _gridlayout = new QGridLayout;
     _vlayout->addWidget(_recherche);
     _vlayout->setAlignment(_recherche,Qt::AlignTop);
+
     print_Tags();
 
     _hlay = new QHBoxLayout;
@@ -34,8 +35,10 @@ taglayout::taglayout(xmldom *xd, explorerlayout* el) : QWidget()
     this->setLayout(_vlayout);
 
     _dial = new addtagdialog(_xd->getTagList());
+    _deldial = new deltagdialog(_xd->getTagList());
 
     connect(_add, SIGNAL(clicked()), _dial,SLOT(open()));
+    connect(_del, SIGNAL(clicked()), _deldial,SLOT(open()));
     connect(_dial, SIGNAL(tag_added()), this,SLOT(slot_print_Tags()));
 
     connect(_recherche, SIGNAL(textChanged(QString)), this, SLOT(findTag()));
