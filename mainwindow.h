@@ -26,16 +26,13 @@ class MainWindow : public QMainWindow
         QAction *_newTagAct;
         QAction *_aboutAct;
         QAction *_delTagAct;
-        void about();
         void createActions();
         void createMenus();
     public:
         MainWindow();
         ~MainWindow();
-    protected:
-    #ifndef QT_NO_CONTEXTMENU
-        void contextMenuEvent(QContextMenuEvent *event) override;
-    #endif // QT_NO_CONTEXTMENU
+    public slots:
+        void about();
 };
 
 #endif // MAINWINDOW_H

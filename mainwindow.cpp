@@ -63,14 +63,10 @@ void MainWindow::createMenus()
     _helpMenu->addAction(_aboutAct);
 }
 
-#ifndef QT_NO_CONTEXTMENU
-void MainWindow::contextMenuEvent(QContextMenuEvent *event)
-{/*
-   //POUR LE CLICK DROIT
-    QMenu menu(this);
+void MainWindow::about()
+{
+    QMessageBox::information(this,"About us","<h2>GutenTag</h2><p>Project for a HCI class at Universite de Nantes. The main purpose of this project is to create an application to tag files and repositories.<br/><br/><b>Authors</b> : Jonathan Bonnaud & Kevin Espasa</p>");
 
-    menu.exec(event->globalPos());*/
 }
-#endif // QT_NO_CONTEXTMENU
 
 
