@@ -46,6 +46,15 @@ taglayout::taglayout(xmldom *xd, explorerlayout* el) : QWidget()
     connect(_recherche, SIGNAL(textChanged(QString)), this, SLOT(findTag()));
 }
 
+addtagdialog *taglayout::getDial()
+{
+    return _dial;
+}
+
+deltagdialog *taglayout::getDelDial()
+{
+    return _deldial;
+}
 
 //affiche les tags
 void taglayout::print_Tags()

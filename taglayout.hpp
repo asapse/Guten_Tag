@@ -25,6 +25,8 @@ class taglayout : public QWidget
         QVector<tag*>* getTagList();
         QPushButton *createButton(tag *tag);
         void addFile(QString tagname, QString file);
+        addtagdialog *getDial();
+        deltagdialog *getDelDial();
     private:
         xmldom *_xd;
         QLineEdit *_recherche;
@@ -38,7 +40,6 @@ class taglayout : public QWidget
         QGridLayout *_gridlayout;
         QListView *_listview;
         explorerlayout * _explayout;
-
     public slots:
         void slot_print_Tags();
         void slot_del_Tags();
