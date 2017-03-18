@@ -48,6 +48,11 @@ void MainWindow::createActions()
     connect(_delTagAct, SIGNAL(triggered(bool)), _taglay->getDelDial(), SLOT(open()));
     connect(_delTagAct, SIGNAL(triggered(bool)), _taglay->getDelDial(),SLOT(print_list_checkbox()));
 
+    _exitAct = new QAction(tr("&Quitter"), this);
+    _exitAct->setShortcuts(QKeySequence::Quit);
+    _exitAct->setStatusTip(tr("Exit application"));
+    connect(_exitAct, SIGNAL(triggered(bool)), this, SLOT(close()));
+
     _aboutAct = new QAction(tr("&AboutUs"), this);
     _aboutAct->setStatusTip(tr("About us"));
     connect(_aboutAct, SIGNAL(triggered(bool)), this, SLOT(about()));
@@ -58,6 +63,7 @@ void MainWindow::createMenus()
     _tagMenu = menuBar()->addMenu(tr("&MenuTag"));
     _tagMenu->addAction(_newTagAct);
     _tagMenu->addAction(_delTagAct);
+    _tagMenu->addAction(_exitAct);
 
     _helpMenu = menuBar()->addMenu(tr("&Help"));
     _helpMenu->addAction(_aboutAct);

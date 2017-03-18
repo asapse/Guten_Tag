@@ -24,6 +24,7 @@ class MainWindow : public QMainWindow
         QMenu *_tagMenu;
         QMenu *_helpMenu;
         QAction *_newTagAct;
+        QAction *_exitAct;
         QAction *_aboutAct;
         QAction *_delTagAct;
         void createActions();
