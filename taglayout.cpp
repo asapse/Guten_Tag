@@ -23,14 +23,22 @@ taglayout::taglayout(xmldom *xd, explorerlayout* el) : QWidget()
     _gridlayout = new QGridLayout;
     _vlayout->addWidget(_recherche);
     _vlayout->setAlignment(_recherche,Qt::AlignTop);
+    _tabwidget = new QTabWidget(this);
+    QWidget *tabtag = new QWidget(_tabwidget);
+    tabtag->setLayout(_gridlayout);
+    _tabwidget->addTab(tabtag, "tag");
+
+    _filtergridlayout = new QGridLayout;
+    QWidget *tabfiltre = new QWidget(_tabwidget);
+    tabfiltre->setLayout(_filtergridlayout);
+    _tabwidget->addTab(tabfiltre, "filtre");
 
     print_Tags();
 
     _hlay = new QHBoxLayout;
     _hlay->addWidget(_add);
     _hlay->addWidget(_del);
-
-    _vlayout->addLayout(_gridlayout);
+    _vlayout->addWidget(_tabwidget);
     _vlayout->setAlignment(_hlay,Qt::AlignHCenter);
 
     _vlayout->addLayout(_hlay);
@@ -66,7 +74,11 @@ void taglayout::print_Tags()
     for(int i=0; i<_xd->getTagList()->size(); i++)
     {
         QPushButton *but = createButton(_xd->getTagList()->value(i));
-        _gridlayout->addWidget(but, i%12, i/12);
+        QPushButton *but2 = createButton(_xd->getTagList()->value(i));
+        connect(but2,SIGNAL(pressed()), this, SLOT(on_filterbutton_clicked()));
+        connect(but, SIGNAL(clicked()), this, SLOT(on_tagbutton_clicked()));
+        _gridlayout->addWidget(but, i%11, i/11);
+        _filtergridlayout->addWidget(but2, i%11, i/11);
     }
 
 }
@@ -74,11 +86,18 @@ void taglayout::print_Tags()
 void taglayout::slot_print_Tags()
 {
     QPushButton *but = createButton(_xd->getTagList()->last());
-    if((_xd->getTagList()->size()%12)==0)
+    QPushButton *but2 = createButton(_xd->getTagList()->last());
+    connect(but2,SIGNAL(pressed()), this, SLOT(on_filterbutton_clicked()));
+    connect(but, SIGNAL(clicked()), this, SLOT(on_tagbutton_clicked()));
+    if((_xd->getTagList()->size()%11)==0)
     {
-        _gridlayout->addWidget(but,11, (_xd->getTagList()->size()/12)-1);
+        _gridlayout->addWidget(but,10, (_xd->getTagList()->size()/11)-1);
+        _filtergridlayout->addWidget(but2,10, (_xd->getTagList()->size()/11)-1);
     }
-    else _gridlayout->addWidget(but,((_xd->getTagList()->size())%12)-1, _xd->getTagList()->size()/12);
+    else {
+        _gridlayout->addWidget(but,((_xd->getTagList()->size())%11)-1, _xd->getTagList()->size()/11);
+        _filtergridlayout->addWidget(but2,((_xd->getTagList()->size())%11)-1, _xd->getTagList()->size()/11);
+     }
 }
 
 void taglayout::slot_del_Tags()
@@ -88,6 +107,8 @@ void taglayout::slot_del_Tags()
     {
         _gridlayout->itemAt(list->at(i))->widget()->hide();
         _gridlayout->removeWidget(_gridlayout->itemAt(list->at(i))->widget());
+        _filtergridlayout->itemAt(list->at(i))->widget()->hide();
+        _filtergridlayout->removeWidget(_filtergridlayout->itemAt(list->at(i))->widget());
     }
 }
 
@@ -102,7 +123,6 @@ QPushButton *taglayout::createButton(tag *item)
     QFont font = b->font();
     font.setPointSize(16);
     b->setFont(font);
-    connect(b, SIGNAL(clicked()), this, SLOT(on_tagbutton_clicked()));
     return b;
 }
 
@@ -120,9 +140,12 @@ void taglayout::findTag()
         if(!_taglist->at(i)->getName().compare(searchString)==0 && !_taglist->at(i)->getName().contains(searchString))
         {
             _gridlayout->itemAt(i)->widget()->hide();
+            _filtergridlayout->itemAt(i)->widget()->hide();
         }
-        else _gridlayout->itemAt(i)->widget()->show();
-
+        else {
+            _gridlayout->itemAt(i)->widget()->show();
+            _filtergridlayout->itemAt(i)->widget()->show();
+        }
         //if(_recherche->text().compare("")==0) _gridlayout->itemAt(i)->widget()->show();
     }
 }
@@ -137,10 +160,6 @@ void taglayout::on_tagbutton_clicked()
            addFile(button->text(), path);
        }
     }
-    else{
-        QPushButton* button = qobject_cast<QPushButton*>(sender());
-        _explayout->filter(button->text());
-    }
 }
 
 void taglayout::addFile(QString tagname, QString file)
@@ -151,8 +170,12 @@ void taglayout::addFile(QString tagname, QString file)
                  _taglist->at(i)->addFile(file);
             }else{
                 _taglist->at(i)->deleteFile(file);
-                //QMessageBox::warning(this,"Le fichier est déjà taggé","le fichier/dossier: "+ file+" est déjà taggé en "+tagname);
             }
         }
     }
+}
+
+void taglayout::on_filterbutton_clicked(){
+    QPushButton* button = qobject_cast<QPushButton*>(sender());
+    _explayout->filter(button->text());
 }

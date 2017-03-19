@@ -76,6 +76,8 @@ class taglayout : public QWidget
         QGridLayout *_gridlayout;
         QListView *_listview;
         explorerlayout * _explayout;
+        QTabWidget *_tabwidget;
+        QGridLayout * _filtergridlayout;
     public slots:
         /**
          * @brief slot d'affichage des tags
@@ -93,6 +95,10 @@ class taglayout : public QWidget
          * @brief slot associé au boutton de tag, permet soit l'affichage des tags associés soit de tagger un fichier
          */
         void on_tagbutton_clicked();
+        /**
+         * @brief slot associé au boutton de tag pour le filtrage
+         */
+        void on_filterbutton_clicked();
 
 };
 

@@ -37,7 +37,7 @@ void addtagdialog::accept_add_tag()
         return;
     }
 
-    if(_taglist->size() >= 48){
+    if(_taglist->size() >= 44){
         QMessageBox::warning(this,"Erreur","Vous avez atteind le nombre maximum de tags.");
         return;
     }
