@@ -8,8 +8,12 @@ taglayout::taglayout(xmldom *xd, explorerlayout* el) : QWidget()
     _explayout = el;
 
     _vlayout = new QVBoxLayout;
-    _del = new QPushButton("Supprimer");
-    _add = new QPushButton("Ajouter");
+    _del = new QPushButton();
+    _add = new QPushButton();
+    _add->setIcon(QPixmap("../Guten_Tag/add.png"));
+    _add->setIconSize(QSize(55,45));
+    _del->setIcon(QPixmap("../Guten_Tag/remove.png"));
+    _del->setIconSize(QSize(55,45));
 
     //add here new widgets, then add them to the layout
     _recherche = new QLineEdit();
