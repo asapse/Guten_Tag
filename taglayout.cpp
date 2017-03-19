@@ -137,8 +137,6 @@ void taglayout::on_tagbutton_clicked()
         QPushButton* button = qobject_cast<QPushButton*>(sender());
         _explayout->filter(button->text());
     }
-    QPushButton* button = qobject_cast<QPushButton*>(sender());
-    std::cout<<button->size().width()<<std::endl;
 }
 
 void taglayout::addFile(QString tagname, QString file)

@@ -1,3 +1,8 @@
+/**
+  * @file mainwindow.hpp
+  * @authors Espasa Kévin, Bonnaud Jonathan
+  * @brief classe principale
+**/
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -30,9 +35,18 @@ class MainWindow : public QMainWindow
         void createActions();
         void createMenus();
     public:
+        /**
+         * @brief construteur de la classe
+         */
         MainWindow();
+        /**
+          * @brief destructeur de la classe
+          **/
         ~MainWindow();
     public slots:
+        /**
+         * @brief slot associé au boutton about
+         */
         void about();
 };
 
