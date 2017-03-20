@@ -88,17 +88,31 @@ void taglayout::slot_print_Tags()
 {
     QPushButton *but = createButton(_xd->getTagList()->last());
     QPushButton *but2 = createButton(_xd->getTagList()->last());
+    bool iscreate = false;
     connect(but2,SIGNAL(pressed()), this, SLOT(on_filterbutton_clicked()));
     connect(but, SIGNAL(clicked()), this, SLOT(on_tagbutton_clicked()));
-    if((_xd->getTagList()->size()%11)==0)
-    {
-        _gridlayout->addWidget(but,10, (_xd->getTagList()->size()/11)-1);
-        _filtergridlayout->addWidget(but2,10, (_xd->getTagList()->size()/11)-1);
+    for(int i=0; i<_gridlayout->columnCount(); ++i){
+        for(int j=0; j<_gridlayout->rowCount(); ++j){
+            if(_gridlayout->itemAtPosition(j,i) == NULL){
+                //std::cout<<"i "<<i<<"\ j "<<j<<std::endl;
+                _gridlayout->addWidget(but,j, i);
+                _filtergridlayout->addWidget(but2,j,i);
+
+                 iscreate = true;
+            }
+        }
     }
-    else {
-        _gridlayout->addWidget(but,((_xd->getTagList()->size())%11)-1, _xd->getTagList()->size()/11);
-        _filtergridlayout->addWidget(but2,((_xd->getTagList()->size())%11)-1, _xd->getTagList()->size()/11);
-     }
+    if(iscreate == false){
+        if((_xd->getTagList()->size()%11)==0)
+        {
+            _gridlayout->addWidget(but,10, (_xd->getTagList()->size()/11)-1);
+            _filtergridlayout->addWidget(but2,10, (_xd->getTagList()->size()/11)-1);
+        }
+        else {
+            _gridlayout->addWidget(but,((_xd->getTagList()->size())%11)-1, _xd->getTagList()->size()/11);
+            _filtergridlayout->addWidget(but2,((_xd->getTagList()->size())%11)-1, _xd->getTagList()->size()/11);
+         }
+    }
 }
 
 void taglayout::slot_del_Tags()
