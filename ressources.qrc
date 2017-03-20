@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/file">
+        <file>add.png</file>
+        <file>default.xml</file>
+        <file>remove.png</file>
+    </qresource>
+</RCC>

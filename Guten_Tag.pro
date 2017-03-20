@@ -42,3 +42,6 @@ HEADERS  += mainwindow.h \
 
 DISTFILES += \
     default.xml
+
+RESOURCES += \
+    ressources.qrc

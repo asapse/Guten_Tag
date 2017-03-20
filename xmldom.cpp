@@ -2,7 +2,7 @@
 
 xmldom::xmldom() : QWidget()
 {
-    _filepath = QDir::currentPath()+"/" + QString::fromStdString("default.xml");
+    _filepath = QDir::currentPath()+"/" + QString::fromStdString("../Guten_Tag/default.xml");
     _dom = new QDomDocument(QString::fromStdString("xml"));
     _taglist = new QVector<tag*>();
 }

@@ -10,9 +10,9 @@ taglayout::taglayout(xmldom *xd, explorerlayout* el) : QWidget()
     _vlayout = new QVBoxLayout;
     _del = new QPushButton();
     _add = new QPushButton();
-    _add->setIcon(QPixmap("../Guten_Tag/add.png"));
+    _add->setIcon(QPixmap(":file/add.png"));
     _add->setIconSize(QSize(55,45));
-    _del->setIcon(QPixmap("../Guten_Tag/remove.png"));
+    _del->setIcon(QPixmap(":file/remove.png"));
     _del->setIconSize(QSize(55,45));
 
     //add here new widgets, then add them to the layout
