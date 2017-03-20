@@ -56,6 +56,7 @@ taglayout::taglayout(xmldom *xd, explorerlayout* el) : QWidget()
     connect(_deldial, SIGNAL(tag_deleted()), this,SLOT(slot_del_Tags()));
 
     connect(_recherche, SIGNAL(textChanged(QString)), this, SLOT(findTag()));
+    connect(_tabwidget, SIGNAL(currentChanged(int)), _explayout, SLOT(hideListFiles(int)));
 }
 
 addtagdialog *taglayout::getDial()

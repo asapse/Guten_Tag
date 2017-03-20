@@ -22,12 +22,17 @@ addtagdialog::addtagdialog(QVector<tag*> *taglist) : QDialog()
 
     //créer 10 couleurs de base et choisir entre ces 10
     _colors = new QMap<QString, QColor>();
-    _colors->insert("rouge", QColor(255,51,51));
-    _colors->insert("jaune", QColor(255,255,51));
-    _colors->insert("vert", QColor(153,255,51));
-    _colors->insert("vert clair", QColor(51,255,153));
-    _colors->insert("bleu", QColor(51,153,255));
-    _colors->insert("rose", QColor(255,51,153));
+    _colors->insert("rouge", QColor(255,105,97));
+    _colors->insert("jaune", QColor(253,253,150));
+    _colors->insert("vert", QColor(3,192,60));
+    _colors->insert("vert fonce", QColor(85,158,131));
+    _colors->insert("bleu", QColor(27,133,184));
+    _colors->insert("rose", QColor(255,209,220));
+    _colors->insert("orange", QColor(255,179,71));
+    _colors->insert("marron", QColor(160,130,105));
+    _colors->insert("violet", QColor(150,111,214));
+    _colors->insert("gris", QColor(211,211,211));
+    _colors->insert("bleu fonce", QColor(119,158,203));
 
     _cb = new QComboBox;
     for(int i=0; i<_colors->size();i++)

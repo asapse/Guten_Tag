@@ -102,7 +102,6 @@ void explorerlayout::filter(QString name)
 {
     _listwidget->clear();
     _listfiles->clear();
-    if(_listfiles->isHidden()){
         int i = 0;
         while(_xdom->getTagList()->at(i)->getName().compare(name)!=0)
             ++i;
@@ -110,6 +109,13 @@ void explorerlayout::filter(QString name)
         for(int k=0; k<vfiles.size(); ++k){
             _listfiles->addItem(vfiles.at(k));
         }
+
+}
+
+void explorerlayout::hideListFiles(int index)
+{
+    if(index == 1)
+    {
         _qtableview->hide();
         _listfiles->show();
     }

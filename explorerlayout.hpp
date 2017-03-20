@@ -85,6 +85,7 @@ class explorerlayout : public QWidget
          * @param index
          */
         void on_qtableview_clicked(const QModelIndex &index);
+        void hideListFiles(int index);
 };
 
 #endif // EXPLORERLAYOUT_HPP

@@ -21,6 +21,7 @@
 #include <QObject>
 #include <QApplication>
 #include <QListWidget>
+#include <QTabBar>
 
 class taglayout : public QWidget
 {
