@@ -1,0 +1,156 @@
+\hypertarget{classexplorerlayout}{\section{explorerlayout Class Reference}
+\label{classexplorerlayout}\index{explorerlayout@{explorerlayout}}
+}
+Inheritance diagram for explorerlayout\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classexplorerlayout}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classexplorerlayout_a901d318100af1524b51b0075d9626c01}{on\-\_\-qtableview\-\_\-double\-Clicked} (const Q\-Model\-Index \&index)
+\begin{DoxyCompactList}\small\item\em slot permettant lors d'un double clic de rentrer dans le dossier. \end{DoxyCompactList}\item 
+\hypertarget{classexplorerlayout_aa96e3819021c89ea58df68a34e599b22}{void \hyperlink{classexplorerlayout_aa96e3819021c89ea58df68a34e599b22}{on\-\_\-path\-\_\-return\-Pressed} ()}\label{classexplorerlayout_aa96e3819021c89ea58df68a34e599b22}
+
+\begin{DoxyCompactList}\small\item\em slot associé a l'edit text lorsque l'on appuie sur entrée, on va au path donné s'il existe. \end{DoxyCompactList}\item 
+\hypertarget{classexplorerlayout_ade8d3fbd3d0e61cb409191736ab844e6}{void \hyperlink{classexplorerlayout_ade8d3fbd3d0e61cb409191736ab844e6}{on\-\_\-backbutton\-\_\-clicked} ()}\label{classexplorerlayout_ade8d3fbd3d0e61cb409191736ab844e6}
+
+\begin{DoxyCompactList}\small\item\em slot associé au boutton \char`\"{}$<$\char`\"{} permettant le retour en arriere pour le path. \end{DoxyCompactList}\item 
+void \hyperlink{classexplorerlayout_afb5f67a2903743d8a8374f5160ff5d25}{on\-\_\-qtableview\-\_\-clicked} (const Q\-Model\-Index \&index)
+\begin{DoxyCompactList}\small\item\em slot associé à la table view affichant dans la table la liste des tags associés au fichier sélectionné dans le table view \end{DoxyCompactList}\item 
+\hypertarget{classexplorerlayout_a08d4b2c695d42645f4d29f96e90ed07f}{void {\bfseries hide\-List\-Files} (int index)}\label{classexplorerlayout_a08d4b2c695d42645f4d29f96e90ed07f}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classexplorerlayout_aed9ef211abfc6af064bda787445981e1}{explorerlayout} (\hyperlink{classxmldom}{xmldom} $\ast$xdom)
+\begin{DoxyCompactList}\small\item\em constructeur du widget. \end{DoxyCompactList}\item 
+Q\-Table\-View $\ast$ \hyperlink{classexplorerlayout_aaa3d4b0374eebf3bc851080447ff9e28}{get\-Table\-View} ()
+\begin{DoxyCompactList}\small\item\em fonction retournant la table view. \end{DoxyCompactList}\item 
+Q\-Model\-Index\-List \hyperlink{classexplorerlayout_a4132f3f08f7d8d25e7e818ab68f5c566}{get\-Index\-Table\-View} ()
+\begin{DoxyCompactList}\small\item\em fonction retournant le pointeur du tableau des indexes sélectionnés. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{classexplorerlayout_a4c2cdee19ac9098602d404eae2d5bcf2}{get\-Path} ()
+\begin{DoxyCompactList}\small\item\em fonction retournant le path de la editline. \end{DoxyCompactList}\item 
+void \hyperlink{classexplorerlayout_a2046b6c80a021c39ce6630d55be09c98}{filter} (Q\-Push\-Button $\ast$button)
+\begin{DoxyCompactList}\small\item\em procédure de filtre, elle affiche à la place de la table view la liste des fichiers associés à un tag donné. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classexplorerlayout_aed9ef211abfc6af064bda787445981e1}{\index{explorerlayout@{explorerlayout}!explorerlayout@{explorerlayout}}
+\index{explorerlayout@{explorerlayout}!explorerlayout@{explorerlayout}}
+\subsubsection[{explorerlayout}]{\setlength{\rightskip}{0pt plus 5cm}explorerlayout\-::explorerlayout (
+\begin{DoxyParamCaption}
+\item[{{\bf xmldom} $\ast$}]{xdom}
+\end{DoxyParamCaption}
+)}}\label{classexplorerlayout_aed9ef211abfc6af064bda787445981e1}
+
+
+constructeur du widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xdom} & le xml comportant les informations sur les tags. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classexplorerlayout_a2046b6c80a021c39ce6630d55be09c98}{\index{explorerlayout@{explorerlayout}!filter@{filter}}
+\index{filter@{filter}!explorerlayout@{explorerlayout}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}void explorerlayout\-::filter (
+\begin{DoxyParamCaption}
+\item[{Q\-Push\-Button $\ast$}]{button}
+\end{DoxyParamCaption}
+)}}\label{classexplorerlayout_a2046b6c80a021c39ce6630d55be09c98}
+
+
+procédure de filtre, elle affiche à la place de la table view la liste des fichiers associés à un tag donné. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name,le} & nom du boutton. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classexplorerlayout_a4132f3f08f7d8d25e7e818ab68f5c566}{\index{explorerlayout@{explorerlayout}!get\-Index\-Table\-View@{get\-Index\-Table\-View}}
+\index{get\-Index\-Table\-View@{get\-Index\-Table\-View}!explorerlayout@{explorerlayout}}
+\subsubsection[{get\-Index\-Table\-View}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Model\-Index\-List explorerlayout\-::get\-Index\-Table\-View (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classexplorerlayout_a4132f3f08f7d8d25e7e818ab68f5c566}
+
+
+fonction retournant le pointeur du tableau des indexes sélectionnés. 
+
+\begin{DoxyReturn}{Returns}
+Q\-Table\-View. 
+\end{DoxyReturn}
+\hypertarget{classexplorerlayout_a4c2cdee19ac9098602d404eae2d5bcf2}{\index{explorerlayout@{explorerlayout}!get\-Path@{get\-Path}}
+\index{get\-Path@{get\-Path}!explorerlayout@{explorerlayout}}
+\subsubsection[{get\-Path}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String explorerlayout\-::get\-Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classexplorerlayout_a4c2cdee19ac9098602d404eae2d5bcf2}
+
+
+fonction retournant le path de la editline. 
+
+\begin{DoxyReturn}{Returns}
+Q\-String. 
+\end{DoxyReturn}
+\hypertarget{classexplorerlayout_aaa3d4b0374eebf3bc851080447ff9e28}{\index{explorerlayout@{explorerlayout}!get\-Table\-View@{get\-Table\-View}}
+\index{get\-Table\-View@{get\-Table\-View}!explorerlayout@{explorerlayout}}
+\subsubsection[{get\-Table\-View}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Table\-View $\ast$ explorerlayout\-::get\-Table\-View (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classexplorerlayout_aaa3d4b0374eebf3bc851080447ff9e28}
+
+
+fonction retournant la table view. 
+
+\begin{DoxyReturn}{Returns}
+la table view. 
+\end{DoxyReturn}
+\hypertarget{classexplorerlayout_afb5f67a2903743d8a8374f5160ff5d25}{\index{explorerlayout@{explorerlayout}!on\-\_\-qtableview\-\_\-clicked@{on\-\_\-qtableview\-\_\-clicked}}
+\index{on\-\_\-qtableview\-\_\-clicked@{on\-\_\-qtableview\-\_\-clicked}!explorerlayout@{explorerlayout}}
+\subsubsection[{on\-\_\-qtableview\-\_\-clicked}]{\setlength{\rightskip}{0pt plus 5cm}void explorerlayout\-::on\-\_\-qtableview\-\_\-clicked (
+\begin{DoxyParamCaption}
+\item[{const Q\-Model\-Index \&}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classexplorerlayout_afb5f67a2903743d8a8374f5160ff5d25}
+
+
+slot associé à la table view affichant dans la table la liste des tags associés au fichier sélectionné dans le table view 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classexplorerlayout_a901d318100af1524b51b0075d9626c01}{\index{explorerlayout@{explorerlayout}!on\-\_\-qtableview\-\_\-double\-Clicked@{on\-\_\-qtableview\-\_\-double\-Clicked}}
+\index{on\-\_\-qtableview\-\_\-double\-Clicked@{on\-\_\-qtableview\-\_\-double\-Clicked}!explorerlayout@{explorerlayout}}
+\subsubsection[{on\-\_\-qtableview\-\_\-double\-Clicked}]{\setlength{\rightskip}{0pt plus 5cm}void explorerlayout\-::on\-\_\-qtableview\-\_\-double\-Clicked (
+\begin{DoxyParamCaption}
+\item[{const Q\-Model\-Index \&}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{classexplorerlayout_a901d318100af1524b51b0075d9626c01}
+
+
+slot permettant lors d'un double clic de rentrer dans le dossier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{explorerlayout_8hpp}{explorerlayout.\-hpp}\item 
+explorerlayout.\-cpp\end{DoxyCompactItemize}

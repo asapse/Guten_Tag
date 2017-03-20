@@ -1,0 +1,156 @@
+\hypertarget{classtaglayout}{\section{taglayout Class Reference}
+\label{classtaglayout}\index{taglayout@{taglayout}}
+}
+Inheritance diagram for taglayout\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classtaglayout}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classtaglayout_ab885eac00ae5dabf14d05ad0466f8c40}{void \hyperlink{classtaglayout_ab885eac00ae5dabf14d05ad0466f8c40}{slot\-\_\-print\-\_\-\-Tags} ()}\label{classtaglayout_ab885eac00ae5dabf14d05ad0466f8c40}
+
+\begin{DoxyCompactList}\small\item\em slot d'affichage des tags \end{DoxyCompactList}\item 
+\hypertarget{classtaglayout_adc394329955e8887115f05a85377f940}{void \hyperlink{classtaglayout_adc394329955e8887115f05a85377f940}{slot\-\_\-del\-\_\-\-Tags} ()}\label{classtaglayout_adc394329955e8887115f05a85377f940}
+
+\begin{DoxyCompactList}\small\item\em slot de suppression des tags \end{DoxyCompactList}\item 
+\hypertarget{classtaglayout_ae21bbf293ba198e7876d7e5427d80852}{void \hyperlink{classtaglayout_ae21bbf293ba198e7876d7e5427d80852}{find\-Tag} ()}\label{classtaglayout_ae21bbf293ba198e7876d7e5427d80852}
+
+\begin{DoxyCompactList}\small\item\em slot associé à la barre de recherche, permettant de chercher dans la liste des tags le tag souhaité \end{DoxyCompactList}\item 
+\hypertarget{classtaglayout_ad1b120e1f0c5677577a579e648fe8a9e}{void \hyperlink{classtaglayout_ad1b120e1f0c5677577a579e648fe8a9e}{on\-\_\-tagbutton\-\_\-clicked} ()}\label{classtaglayout_ad1b120e1f0c5677577a579e648fe8a9e}
+
+\begin{DoxyCompactList}\small\item\em slot associé au boutton de tag, permet soit l'affichage des tags associés soit de tagger un fichier \end{DoxyCompactList}\item 
+\hypertarget{classtaglayout_a5bab3aa8a1c75f04e73bf0644e74cf1c}{void \hyperlink{classtaglayout_a5bab3aa8a1c75f04e73bf0644e74cf1c}{on\-\_\-filterbutton\-\_\-clicked} ()}\label{classtaglayout_a5bab3aa8a1c75f04e73bf0644e74cf1c}
+
+\begin{DoxyCompactList}\small\item\em slot associé au boutton de tag pour le filtrage \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtaglayout_af32701e2f0dbfabc1b39a18dc2d65aad}{taglayout} (\hyperlink{classxmldom}{xmldom} $\ast$xd, \hyperlink{classexplorerlayout}{explorerlayout} $\ast$el)
+\begin{DoxyCompactList}\small\item\em construteur de la classe \end{DoxyCompactList}\item 
+\hypertarget{classtaglayout_af06d79cca2f358f06b47f335e95b1f63}{void \hyperlink{classtaglayout_af06d79cca2f358f06b47f335e95b1f63}{print\-\_\-\-Tags} ()}\label{classtaglayout_af06d79cca2f358f06b47f335e95b1f63}
+
+\begin{DoxyCompactList}\small\item\em procedure affichant les tags dans la gridlayout \end{DoxyCompactList}\item 
+Q\-Vector$<$ \hyperlink{classtag}{tag} $\ast$ $>$ $\ast$ \hyperlink{classtaglayout_a2e520044d1382d8327e1f952fc39558f}{get\-Tag\-List} ()
+\begin{DoxyCompactList}\small\item\em fonction retournant la liste de tags \end{DoxyCompactList}\item 
+Q\-Push\-Button $\ast$ \hyperlink{classtaglayout_a27c1f97e87c8ce6694b4069ef74183b6}{create\-Button} (\hyperlink{classtag}{tag} $\ast$\hyperlink{classtag}{tag})
+\begin{DoxyCompactList}\small\item\em fonction permettant la création d'un boutton tag \end{DoxyCompactList}\item 
+void \hyperlink{classtaglayout_a716e94f88343dc876375072f58e1b2d1}{add\-File} (Q\-String tagname, Q\-String file)
+\begin{DoxyCompactList}\small\item\em procedure ajout un fichier a un tag \end{DoxyCompactList}\item 
+\hyperlink{classaddtagdialog}{addtagdialog} $\ast$ \hyperlink{classtaglayout_a0e5bf2b22dd7cb27017d7e40020bf081}{get\-Dial} ()
+\begin{DoxyCompactList}\small\item\em fonction créant la boite de dialog d'ajout \end{DoxyCompactList}\item 
+\hyperlink{classdeltagdialog}{deltagdialog} $\ast$ \hyperlink{classtaglayout_a883465cdf9cedbde062f2ba60808a7fd}{get\-Del\-Dial} ()
+\begin{DoxyCompactList}\small\item\em fonction créant la boite de dialog de suppression \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classtaglayout_af32701e2f0dbfabc1b39a18dc2d65aad}{\index{taglayout@{taglayout}!taglayout@{taglayout}}
+\index{taglayout@{taglayout}!taglayout@{taglayout}}
+\subsubsection[{taglayout}]{\setlength{\rightskip}{0pt plus 5cm}taglayout\-::taglayout (
+\begin{DoxyParamCaption}
+\item[{{\bf xmldom} $\ast$}]{xd, }
+\item[{{\bf explorerlayout} $\ast$}]{el}
+\end{DoxyParamCaption}
+)}}\label{classtaglayout_af32701e2f0dbfabc1b39a18dc2d65aad}
+
+
+construteur de la classe 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xd} & le xml genere à partir du fichier xml \\
+\hline
+{\em el} & explorer layout \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classtaglayout_a716e94f88343dc876375072f58e1b2d1}{\index{taglayout@{taglayout}!add\-File@{add\-File}}
+\index{add\-File@{add\-File}!taglayout@{taglayout}}
+\subsubsection[{add\-File}]{\setlength{\rightskip}{0pt plus 5cm}void taglayout\-::add\-File (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{tagname, }
+\item[{Q\-String}]{file}
+\end{DoxyParamCaption}
+)}}\label{classtaglayout_a716e94f88343dc876375072f58e1b2d1}
+
+
+procedure ajout un fichier a un tag 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tagname} & le nom du tag \\
+\hline
+{\em file} & le nom du fichier \\
+\hline
+\end{DoxyParams}
+\hypertarget{classtaglayout_a27c1f97e87c8ce6694b4069ef74183b6}{\index{taglayout@{taglayout}!create\-Button@{create\-Button}}
+\index{create\-Button@{create\-Button}!taglayout@{taglayout}}
+\subsubsection[{create\-Button}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Push\-Button $\ast$ taglayout\-::create\-Button (
+\begin{DoxyParamCaption}
+\item[{{\bf tag} $\ast$}]{tag}
+\end{DoxyParamCaption}
+)}}\label{classtaglayout_a27c1f97e87c8ce6694b4069ef74183b6}
+
+
+fonction permettant la création d'un boutton tag 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tag} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classtaglayout_a883465cdf9cedbde062f2ba60808a7fd}{\index{taglayout@{taglayout}!get\-Del\-Dial@{get\-Del\-Dial}}
+\index{get\-Del\-Dial@{get\-Del\-Dial}!taglayout@{taglayout}}
+\subsubsection[{get\-Del\-Dial}]{\setlength{\rightskip}{0pt plus 5cm}{\bf deltagdialog} $\ast$ taglayout\-::get\-Del\-Dial (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtaglayout_a883465cdf9cedbde062f2ba60808a7fd}
+
+
+fonction créant la boite de dialog de suppression 
+
+\begin{DoxyReturn}{Returns}
+l'adresse vers la boite 
+\end{DoxyReturn}
+\hypertarget{classtaglayout_a0e5bf2b22dd7cb27017d7e40020bf081}{\index{taglayout@{taglayout}!get\-Dial@{get\-Dial}}
+\index{get\-Dial@{get\-Dial}!taglayout@{taglayout}}
+\subsubsection[{get\-Dial}]{\setlength{\rightskip}{0pt plus 5cm}{\bf addtagdialog} $\ast$ taglayout\-::get\-Dial (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtaglayout_a0e5bf2b22dd7cb27017d7e40020bf081}
+
+
+fonction créant la boite de dialog d'ajout 
+
+\begin{DoxyReturn}{Returns}
+l'adresse vers la boite 
+\end{DoxyReturn}
+\hypertarget{classtaglayout_a2e520044d1382d8327e1f952fc39558f}{\index{taglayout@{taglayout}!get\-Tag\-List@{get\-Tag\-List}}
+\index{get\-Tag\-List@{get\-Tag\-List}!taglayout@{taglayout}}
+\subsubsection[{get\-Tag\-List}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Vector$<$ {\bf tag} $\ast$ $>$ $\ast$ taglayout\-::get\-Tag\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtaglayout_a2e520044d1382d8327e1f952fc39558f}
+
+
+fonction retournant la liste de tags 
+
+\begin{DoxyReturn}{Returns}
+Q\-Vector de tag 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{taglayout_8hpp}{taglayout.\-hpp}\item 
+taglayout.\-cpp\end{DoxyCompactItemize}

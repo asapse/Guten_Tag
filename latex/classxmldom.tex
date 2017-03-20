@@ -1,0 +1,121 @@
+\hypertarget{classxmldom}{\section{xmldom Class Reference}
+\label{classxmldom}\index{xmldom@{xmldom}}
+}
+Inheritance diagram for xmldom\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classxmldom}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classxmldom_a4eaf8365402c252d1056b031c06bc94f}{void \hyperlink{classxmldom_a4eaf8365402c252d1056b031c06bc94f}{xml\-Saver} ()}\label{classxmldom_a4eaf8365402c252d1056b031c06bc94f}
+
+\begin{DoxyCompactList}\small\item\em slot permettant l'enregistrement dans le fichier xml \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classxmldom_ad072d12232c0cd4b25d3c5241baf4cf0}{\hyperlink{classxmldom_ad072d12232c0cd4b25d3c5241baf4cf0}{xmldom} ()}\label{classxmldom_ad072d12232c0cd4b25d3c5241baf4cf0}
+
+\begin{DoxyCompactList}\small\item\em constructeur par defaut de la classe. \end{DoxyCompactList}\item 
+\hyperlink{classxmldom_acb5340a747b9623a2d9294bbbfa39774}{xmldom} (Q\-String filepath)
+\begin{DoxyCompactList}\small\item\em constructeur de la classe prenant le chemin du fichier \end{DoxyCompactList}\item 
+\hypertarget{classxmldom_af4a0f240c83121ac2cbb75b181cb095f}{\hyperlink{classxmldom_af4a0f240c83121ac2cbb75b181cb095f}{$\sim$xmldom} ()}\label{classxmldom_af4a0f240c83121ac2cbb75b181cb095f}
+
+\begin{DoxyCompactList}\small\item\em destructeur de la classe \end{DoxyCompactList}\item 
+\hypertarget{classxmldom_a1b066769999c193a6565b1dfaa6b2f30}{void \hyperlink{classxmldom_a1b066769999c193a6565b1dfaa6b2f30}{xml\-Open} ()}\label{classxmldom_a1b066769999c193a6565b1dfaa6b2f30}
+
+\begin{DoxyCompactList}\small\item\em procedure ouvrant un fichier xml \end{DoxyCompactList}\item 
+\hypertarget{classxmldom_afee9a603705a4fbe1763d0e2d2b59e3e}{void \hyperlink{classxmldom_afee9a603705a4fbe1763d0e2d2b59e3e}{xml\-Reader} ()}\label{classxmldom_afee9a603705a4fbe1763d0e2d2b59e3e}
+
+\begin{DoxyCompactList}\small\item\em procedure lisant un fichier xml \end{DoxyCompactList}\item 
+void \hyperlink{classxmldom_ac88d355800d4899937d77cd90b1a5cdb}{add\-Tag} (Q\-String s, Q\-Color c)
+\begin{DoxyCompactList}\small\item\em procedure créant un tag à partir des balises xml \end{DoxyCompactList}\item 
+Q\-Vector$<$ \hyperlink{classtag}{tag} $\ast$ $>$ $\ast$ \hyperlink{classxmldom_a5e98ced4b5518ee5cea38a33bc05922f}{get\-Tag\-List} ()
+\begin{DoxyCompactList}\small\item\em fonction retournant l'adresse du tableau de tags \end{DoxyCompactList}\item 
+\hypertarget{classxmldom_a16088fab1089a12869b7d70faf3118e7}{void \hyperlink{classxmldom_a16088fab1089a12869b7d70faf3118e7}{save\-Tag\-List\-To\-X\-M\-L} ()}\label{classxmldom_a16088fab1089a12869b7d70faf3118e7}
+
+\begin{DoxyCompactList}\small\item\em procedure transformant une tagliste en xml \end{DoxyCompactList}\item 
+void \hyperlink{classxmldom_aefd0dc1ccf2d1ea6d5d523dba0b51113}{add\-File} (Q\-Dom\-Element root, Q\-String path)
+\begin{DoxyCompactList}\small\item\em procedure ajoutant une balise file \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classxmldom_acb5340a747b9623a2d9294bbbfa39774}{\index{xmldom@{xmldom}!xmldom@{xmldom}}
+\index{xmldom@{xmldom}!xmldom@{xmldom}}
+\subsubsection[{xmldom}]{\setlength{\rightskip}{0pt plus 5cm}xmldom\-::xmldom (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{filepath}
+\end{DoxyParamCaption}
+)}}\label{classxmldom_acb5340a747b9623a2d9294bbbfa39774}
+
+
+constructeur de la classe prenant le chemin du fichier 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & chemin du fichier xml \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classxmldom_aefd0dc1ccf2d1ea6d5d523dba0b51113}{\index{xmldom@{xmldom}!add\-File@{add\-File}}
+\index{add\-File@{add\-File}!xmldom@{xmldom}}
+\subsubsection[{add\-File}]{\setlength{\rightskip}{0pt plus 5cm}void xmldom\-::add\-File (
+\begin{DoxyParamCaption}
+\item[{Q\-Dom\-Element}]{root, }
+\item[{Q\-String}]{path}
+\end{DoxyParamCaption}
+)}}\label{classxmldom_aefd0dc1ccf2d1ea6d5d523dba0b51113}
+
+
+procedure ajoutant une balise file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & noeud parent du fichier \\
+\hline
+{\em path} & chemin du fichiers \\
+\hline
+\end{DoxyParams}
+\hypertarget{classxmldom_ac88d355800d4899937d77cd90b1a5cdb}{\index{xmldom@{xmldom}!add\-Tag@{add\-Tag}}
+\index{add\-Tag@{add\-Tag}!xmldom@{xmldom}}
+\subsubsection[{add\-Tag}]{\setlength{\rightskip}{0pt plus 5cm}void xmldom\-::add\-Tag (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{s, }
+\item[{Q\-Color}]{c}
+\end{DoxyParamCaption}
+)}}\label{classxmldom_ac88d355800d4899937d77cd90b1a5cdb}
+
+
+procedure créant un tag à partir des balises xml 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & nom du tag \\
+\hline
+{\em c} & couleur du tag \\
+\hline
+\end{DoxyParams}
+\hypertarget{classxmldom_a5e98ced4b5518ee5cea38a33bc05922f}{\index{xmldom@{xmldom}!get\-Tag\-List@{get\-Tag\-List}}
+\index{get\-Tag\-List@{get\-Tag\-List}!xmldom@{xmldom}}
+\subsubsection[{get\-Tag\-List}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Vector$<$ {\bf tag} $\ast$ $>$ $\ast$ xmldom\-::get\-Tag\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classxmldom_a5e98ced4b5518ee5cea38a33bc05922f}
+
+
+fonction retournant l'adresse du tableau de tags 
+
+\begin{DoxyReturn}{Returns}
+l'adresse du tableau de tag 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{xmldom_8hpp}{xmldom.\-hpp}\item 
+xmldom.\-cpp\end{DoxyCompactItemize}

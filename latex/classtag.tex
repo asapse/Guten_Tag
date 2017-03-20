@@ -1,0 +1,238 @@
+\hypertarget{classtag}{\section{tag Class Reference}
+\label{classtag}\index{tag@{tag}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classtag_a2fa03e94e684be742a0f1a1a50fbafc9}{\hyperlink{classtag_a2fa03e94e684be742a0f1a1a50fbafc9}{tag} ()}\label{classtag_a2fa03e94e684be742a0f1a1a50fbafc9}
+
+\begin{DoxyCompactList}\small\item\em constructeur par defaut d'un tag \end{DoxyCompactList}\item 
+\hyperlink{classtag_aff22891fe1abf1ed5e9b5d440d0158d3}{tag} (Q\-String name, Q\-Color color)
+\begin{DoxyCompactList}\small\item\em construteur du tag \end{DoxyCompactList}\item 
+\hyperlink{classtag_a76b07b771d1600598aed98d118b94576}{tag} (Q\-String name, Q\-Color color, Q\-Vector$<$ Q\-String $>$ files)
+\begin{DoxyCompactList}\small\item\em constructeur du tag \end{DoxyCompactList}\item 
+Q\-Color \hyperlink{classtag_ab16256916b9d7bdbf0273ae48af8cc7d}{get\-Color} ()
+\begin{DoxyCompactList}\small\item\em fonction retournant la couleur associé à un tag \end{DoxyCompactList}\item 
+void \hyperlink{classtag_a90f4405518e74f1ccec80d198a735b77}{set\-Color} (Q\-Color color)
+\begin{DoxyCompactList}\small\item\em modifie la couleur associé au tag \end{DoxyCompactList}\item 
+Q\-String \hyperlink{classtag_a8cebe9849516a303817cb5a7a4ea9614}{get\-Name} ()
+\begin{DoxyCompactList}\small\item\em fonction retournant le nom du tag \end{DoxyCompactList}\item 
+void \hyperlink{classtag_a0566adcb0d18f06a37f456d9fb52ae9e}{set\-Name} (Q\-String name)
+\begin{DoxyCompactList}\small\item\em modifie le nom associé au tag \end{DoxyCompactList}\item 
+void \hyperlink{classtag_a0a0380b3ce237616186cd22e04c16005}{delete\-File} (Q\-String filename)
+\begin{DoxyCompactList}\small\item\em procédure supprimant un fichier associé à un tag. \end{DoxyCompactList}\item 
+void \hyperlink{classtag_a27bb06f6a7a0615db567df84d0357721}{add\-File} (Q\-String filename)
+\begin{DoxyCompactList}\small\item\em procédure ajoutant un fichier à un tag \end{DoxyCompactList}\item 
+void \hyperlink{classtag_aaadbc35ac88e71a9679188ce50d92ef9}{set\-Vector} (Q\-Vector$<$ Q\-String $>$ files)
+\begin{DoxyCompactList}\small\item\em procédure modifiant le vecteur de fichier associé au tag \end{DoxyCompactList}\item 
+Q\-Vector$<$ Q\-String $>$ \hyperlink{classtag_a444e286ff40c9aca8c7cc74032c764af}{get\-Vector} ()
+\begin{DoxyCompactList}\small\item\em fonction retournant le vecteur de fichiers associé au tag \end{DoxyCompactList}\item 
+bool \hyperlink{classtag_a59991e0c7cdf7cbaaf4e9b818a9d8084}{get\-Selected} ()
+\begin{DoxyCompactList}\small\item\em fonction retournant le boolean si un tag est selectionne. \end{DoxyCompactList}\item 
+void \hyperlink{classtag_a752cd9e4379c9cce40444a528310fc8c}{set\-Selected} (bool s)
+\begin{DoxyCompactList}\small\item\em modifie si la valeur du boolean \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classtag_aff22891fe1abf1ed5e9b5d440d0158d3}{\index{tag@{tag}!tag@{tag}}
+\index{tag@{tag}!tag@{tag}}
+\subsubsection[{tag}]{\setlength{\rightskip}{0pt plus 5cm}tag\-::tag (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{name, }
+\item[{Q\-Color}]{color}
+\end{DoxyParamCaption}
+)}}\label{classtag_aff22891fe1abf1ed5e9b5d440d0158d3}
+
+
+construteur du tag 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & nom du tag \\
+\hline
+{\em color} & couleur qui lui est associée \\
+\hline
+\end{DoxyParams}
+\hypertarget{classtag_a76b07b771d1600598aed98d118b94576}{\index{tag@{tag}!tag@{tag}}
+\index{tag@{tag}!tag@{tag}}
+\subsubsection[{tag}]{\setlength{\rightskip}{0pt plus 5cm}tag\-::tag (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{name, }
+\item[{Q\-Color}]{color, }
+\item[{Q\-Vector$<$ Q\-String $>$}]{files}
+\end{DoxyParamCaption}
+)}}\label{classtag_a76b07b771d1600598aed98d118b94576}
+
+
+constructeur du tag 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & nom du tag \\
+\hline
+{\em color} & couleur qui lui est associée \\
+\hline
+{\em files} & liste des fichiers qui sont taggé par le tag \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classtag_a27bb06f6a7a0615db567df84d0357721}{\index{tag@{tag}!add\-File@{add\-File}}
+\index{add\-File@{add\-File}!tag@{tag}}
+\subsubsection[{add\-File}]{\setlength{\rightskip}{0pt plus 5cm}void tag\-::add\-File (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{filename}
+\end{DoxyParamCaption}
+)}}\label{classtag_a27bb06f6a7a0615db567df84d0357721}
+
+
+procédure ajoutant un fichier à un tag 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & le nom du fichier \\
+\hline
+\end{DoxyParams}
+\hypertarget{classtag_a0a0380b3ce237616186cd22e04c16005}{\index{tag@{tag}!delete\-File@{delete\-File}}
+\index{delete\-File@{delete\-File}!tag@{tag}}
+\subsubsection[{delete\-File}]{\setlength{\rightskip}{0pt plus 5cm}void tag\-::delete\-File (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{filename}
+\end{DoxyParamCaption}
+)}}\label{classtag_a0a0380b3ce237616186cd22e04c16005}
+
+
+procédure supprimant un fichier associé à un tag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & le nom du fichier \\
+\hline
+\end{DoxyParams}
+\hypertarget{classtag_ab16256916b9d7bdbf0273ae48af8cc7d}{\index{tag@{tag}!get\-Color@{get\-Color}}
+\index{get\-Color@{get\-Color}!tag@{tag}}
+\subsubsection[{get\-Color}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Color tag\-::get\-Color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtag_ab16256916b9d7bdbf0273ae48af8cc7d}
+
+
+fonction retournant la couleur associé à un tag 
+
+\begin{DoxyReturn}{Returns}
+Q\-Color 
+\end{DoxyReturn}
+\hypertarget{classtag_a8cebe9849516a303817cb5a7a4ea9614}{\index{tag@{tag}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!tag@{tag}}
+\subsubsection[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String tag\-::get\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtag_a8cebe9849516a303817cb5a7a4ea9614}
+
+
+fonction retournant le nom du tag 
+
+\begin{DoxyReturn}{Returns}
+Q\-String \-\_\-name 
+\end{DoxyReturn}
+\hypertarget{classtag_a59991e0c7cdf7cbaaf4e9b818a9d8084}{\index{tag@{tag}!get\-Selected@{get\-Selected}}
+\index{get\-Selected@{get\-Selected}!tag@{tag}}
+\subsubsection[{get\-Selected}]{\setlength{\rightskip}{0pt plus 5cm}bool tag\-::get\-Selected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtag_a59991e0c7cdf7cbaaf4e9b818a9d8084}
+
+
+fonction retournant le boolean si un tag est selectionne. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\hypertarget{classtag_a444e286ff40c9aca8c7cc74032c764af}{\index{tag@{tag}!get\-Vector@{get\-Vector}}
+\index{get\-Vector@{get\-Vector}!tag@{tag}}
+\subsubsection[{get\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Vector$<$ Q\-String $>$ tag\-::get\-Vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtag_a444e286ff40c9aca8c7cc74032c764af}
+
+
+fonction retournant le vecteur de fichiers associé au tag 
+
+\begin{DoxyReturn}{Returns}
+vecteur de Q\-String 
+\end{DoxyReturn}
+\hypertarget{classtag_a90f4405518e74f1ccec80d198a735b77}{\index{tag@{tag}!set\-Color@{set\-Color}}
+\index{set\-Color@{set\-Color}!tag@{tag}}
+\subsubsection[{set\-Color}]{\setlength{\rightskip}{0pt plus 5cm}void tag\-::set\-Color (
+\begin{DoxyParamCaption}
+\item[{Q\-Color}]{color}
+\end{DoxyParamCaption}
+)}}\label{classtag_a90f4405518e74f1ccec80d198a735b77}
+
+
+modifie la couleur associé au tag 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classtag_a0566adcb0d18f06a37f456d9fb52ae9e}{\index{tag@{tag}!set\-Name@{set\-Name}}
+\index{set\-Name@{set\-Name}!tag@{tag}}
+\subsubsection[{set\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void tag\-::set\-Name (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{name}
+\end{DoxyParamCaption}
+)}}\label{classtag_a0566adcb0d18f06a37f456d9fb52ae9e}
+
+
+modifie le nom associé au tag 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classtag_a752cd9e4379c9cce40444a528310fc8c}{\index{tag@{tag}!set\-Selected@{set\-Selected}}
+\index{set\-Selected@{set\-Selected}!tag@{tag}}
+\subsubsection[{set\-Selected}]{\setlength{\rightskip}{0pt plus 5cm}void tag\-::set\-Selected (
+\begin{DoxyParamCaption}
+\item[{bool}]{s}
+\end{DoxyParamCaption}
+)}}\label{classtag_a752cd9e4379c9cce40444a528310fc8c}
+
+
+modifie si la valeur du boolean 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & la nouvelle valeur \\
+\hline
+\end{DoxyParams}
+\hypertarget{classtag_aaadbc35ac88e71a9679188ce50d92ef9}{\index{tag@{tag}!set\-Vector@{set\-Vector}}
+\index{set\-Vector@{set\-Vector}!tag@{tag}}
+\subsubsection[{set\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}void tag\-::set\-Vector (
+\begin{DoxyParamCaption}
+\item[{Q\-Vector$<$ Q\-String $>$}]{files}
+\end{DoxyParamCaption}
+)}}\label{classtag_aaadbc35ac88e71a9679188ce50d92ef9}
+
+
+procédure modifiant le vecteur de fichier associé au tag 
+
+
+\begin{DoxyParams}{Parameters}
+{\em files} & vecteur contenant les paths des fichiers \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tag_8hpp}{tag.\-hpp}\item 
+tag.\-cpp\end{DoxyCompactItemize}
