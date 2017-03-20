@@ -98,18 +98,31 @@ QString explorerlayout::getPath(){
     return _path->text();
 }
 
-void explorerlayout::filter(QString name)
+void explorerlayout::filter(QPushButton *button)
 {
     _listwidget->clear();
-    _listfiles->clear();
-        int i = 0;
-        while(_xdom->getTagList()->at(i)->getName().compare(name)!=0)
-            ++i;
+    int i = 0;
+    while(_xdom->getTagList()->at(i)->getName().compare(button->text())!=0)
+        ++i;
+    if(_xdom->getTagList()->at(i)->getSelected() == false){
+        _xdom->getTagList()->at(i)->setSelected(true);
         QVector<QString> vfiles =_xdom->getTagList()->at(i)->getVector();
         for(int k=0; k<vfiles.size(); ++k){
-            _listfiles->addItem(vfiles.at(k));
+            if(_listfiles->findItems(vfiles.at(k),Qt::MatchContains).size()==0)
+                _listfiles->addItem(vfiles.at(k));
+         }
+        button->setStyleSheet("QPushButton:focus:pressed{background-color : white;}");
+    }else{
+        _xdom->getTagList()->at(i)->setSelected(false);
+        QVector<QString> vfiles =_xdom->getTagList()->at(i)->getVector();
+        for(int k=0; k<vfiles.size(); ++k){
+            for (int l=0; l<_listfiles->count(); ++l){
+                if(vfiles.at(k).compare(_listfiles->item(l)->text())==0)
+                    delete _listfiles->item(l);
+            }
         }
-
+        button->setStyleSheet(QString("background-color: %1").arg(_xdom->getTagList()->at(i)->getColor().name()));
+    }
 }
 
 void explorerlayout::hideListFiles(int index)

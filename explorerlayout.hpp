@@ -54,7 +54,7 @@ class explorerlayout : public QWidget
          * @brief procédure de filtre, elle affiche à la place de la table view la liste des fichiers associés à un tag donné.
          * @param name, le nom du boutton.
          */
-        void filter(QString name);
+        void filter(QPushButton* button);
     private:
         xmldom * _xdom;
         QFileSystemModel *_qfilemodel;

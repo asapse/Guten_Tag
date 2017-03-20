@@ -17,6 +17,7 @@ class tag
         QString _name;
         QColor _color;
         QVector<QString> _files;
+        bool _selected;
     public:
         /**
          * @brief constructeur par defaut d'un tag
@@ -75,6 +76,16 @@ class tag
          * @return vecteur de QString
          */
         QVector<QString> getVector();
+        /**
+         * @brief fonction retournant le boolean si un tag est selectionne.
+         * @return bool
+         */
+        bool getSelected();
+        /**
+         * @brief modifie si la valeur du boolean
+         * @param s la nouvelle valeur
+         */
+        void setSelected(bool s);
 };
 
 #endif // TAG_HPP

@@ -178,5 +178,5 @@ void taglayout::addFile(QString tagname, QString file)
 
 void taglayout::on_filterbutton_clicked(){
     QPushButton* button = qobject_cast<QPushButton*>(sender());
-    _explayout->filter(button->text());
+   _explayout->filter(button);
 }
