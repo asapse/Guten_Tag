@@ -1,6 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <list-tags>
-	<tag name="bleu" color="#3399ff"/>
-	<tag name="vert" color="#99ff33"/>
-	<tag name="rouge" color="#ff3333"/>
+ <tag name="bleu" color="#1b85b8"/>
+ <tag name="bleu f" color="#779ecb"/>
+ <tag name="gris" color="#d3d3d3"/>
+ <tag name="jaune" color="#fdfd96"/>
+ <tag name="orange" color="#ffb347"/>
+ <tag name="rose" color="#ffd1dc"/>
+ <tag name="rouge" color="#ff6961"/>
+ <tag name="vert" color="#03c03c"/>
+ <tag name="vert f" color="#559e83"/>
+ <tag name="violet" color="#966fd6"/>
+ <tag name="marron" color="#a08269"/>
 </list-tags>
