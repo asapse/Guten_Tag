@@ -24,7 +24,7 @@ MainWindow::MainWindow() : QMainWindow()
     createActions();
     createMenus();
 
-    this->setFixedSize(1400, 900);
+    this->setFixedSize(1300, 850);
     this->setGeometry(QRect(250,50,0,0));
     this->setCentralWidget(mainwindow);
 }
@@ -37,9 +37,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::createActions()
 {
-    _newTagAct = new QAction(tr("&NewTag"), this);
+    _newTagAct = new QAction(tr("&NouveauTag"), this);
     _newTagAct->setShortcuts(QKeySequence::AddTab);
-    _newTagAct->setStatusTip(tr("Create a new tag"));
+    _newTagAct->setStatusTip(tr("Créer un nouveau tag"));
     connect(_newTagAct, SIGNAL(triggered(bool)), _taglay->getDial(), SLOT(open()));
 
     _delTagAct = new QAction(tr("&DeleteTags"), this);
