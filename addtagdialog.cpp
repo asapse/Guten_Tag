@@ -19,6 +19,28 @@ addtagdialog::addtagdialog(QVector<tag*> *taglist) : QDialog()
     _hlaybot->addWidget(_anul);
     _hlaybot->addWidget(_valid);
     _vlayout->addLayout(_hlaytop);
+
+    //créer 10 couleurs de base et choisir entre ces 10
+    _colors = new QMap<QString, QColor>();
+    _colors->insert("rouge", QColor(255,51,51));
+    _colors->insert("jaune", QColor(255,255,51));
+    _colors->insert("vert", QColor(153,255,51));
+    _colors->insert("vert clair", QColor(51,255,153));
+    _colors->insert("bleu", QColor(51,153,255));
+    _colors->insert("rose", QColor(255,51,153));
+
+    _cb = new QComboBox;
+    for(int i=0; i<_colors->size();i++)
+    {
+        _cb->addItem(_colors->keys().at(i));
+        QPixmap pixmap(100,100);
+        pixmap.fill(_colors->value(_colors->keys().at(i)));
+        QIcon ico = QIcon(pixmap);
+        _cb->setItemIcon(i, ico);
+
+    }
+    _vlayout->addWidget(_cb);
+
     _vlayout->addLayout(_hlaybot);
     this->setLayout(_vlayout);
 
@@ -59,12 +81,6 @@ void addtagdialog::accept_add_tag()
 
 void addtagdialog::add_tag_to_list()
 {
-    //créer 10 couleurs de base et choisir entre ces 10
-    QColor couleurs[] = {QColor(255,51,51), QColor(255,153,51), QColor(255,255,51), QColor(153,255,51),
-                 QColor(51,255,153), QColor(51,255,255), QColor(51,153,255),
-                 QColor(51,51,255), QColor(153,51,255), QColor(255,51,153)};
-
-    int r = rand() % 9;
-    _taglist->push_back(new tag(_lineditag->text(),couleurs[r]));
+    _taglist->push_back(new tag(_lineditag->text(),_colors->value( _cb->itemText(_cb->currentIndex()) )));
 }
 

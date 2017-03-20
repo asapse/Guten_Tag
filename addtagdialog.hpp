@@ -22,6 +22,8 @@
 #include <QRgb>
 #include <QList>
 #include <QListWidget>
+#include <QComboBox>
+#include <QMap>
 
 class addtagdialog : public QDialog
 {
@@ -44,6 +46,8 @@ class addtagdialog : public QDialog
         QPushButton *_valid;
         QPushButton *_anul;
         QLineEdit *_lineditag;
+        QComboBox *_cb;
+        QMap<QString, QColor> *_colors;
 
     signals:
         void tag_added();
